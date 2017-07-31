@@ -68,7 +68,7 @@
 # 2. git
 ## 2.1. github
 id:wish1994
-password:wish19937
+password:******
 ## 2.2. cmd
  win+r 打开 输入cmd
 常用dir
