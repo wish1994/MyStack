@@ -19,12 +19,12 @@
     - [2.3. shell](#23-shell)
         - [2.3.1. 快捷键](#231-快捷键)
 - [3. git 基本操作](#3-git-基本操作)
-    - [3.1. git init创库](#31-git-init创库)
-    - [3.2. git add . 将版本添加到准备提交里面](#32-git-add--将版本添加到准备提交里面)
-    - [3.3. git commit -m "注明" 提交版本](#33-git-commit--m-注明-提交版本)
+    - [3.1. git init](#31-git-init)
+    - [3.2. git add .](#32-git-add-)
+    - [3.3. git commit -m](#33-git-commit--m)
     - [3.4. git reset 版本号 回溯到哪个版本](#34-git-reset-版本号-回溯到哪个版本)
-    - [3.5. git log 查看当前及过往版本](#35-git-log-查看当前及过往版本)
-    - [3.6. git checkout -- 撤销上一步修改](#36-git-checkout----撤销上一步修改)
+    - [3.5. 查看版本](#35-查看版本)
+    - [3.6. git checkout --](#36-git-checkout---)
     - [3.7. git 远程操作](#37-git-远程操作)
         - [3.7.1. git remote add 远程名字 远程地址](#371-git-remote-add-远程名字-远程地址)
         - [3.7.2. git remote -v](#372-git-remote--v)
@@ -77,17 +77,22 @@ password:******
 常用ls
 ### 2.3.1. 快捷键
 shift+ctrl+p 打开插件搜索框
- *ctrl+`*终端
+ " ctrl+`"终端
 
 # 3. git 基本操作
-## 3.1. git init创库
-## 3.2. git add . 将版本添加到准备提交里面
-## 3.3. git commit -m "注明" 提交版本
+## 3.1. git init
+创库
+## 3.2. git add . 
+将版本添加到准备提交里面
+## 3.3. git commit -m 
+"注明" 提交版本
 ## 3.4. git reset 版本号 回溯到哪个版本
 后缀加上 *--hard* 强制还原
-## 3.5. git log 查看当前及过往版本
+## 3.5. 查看版本
+git log 查看当前及过往版本
 >git reflog 查看所有版本
-## 3.6. git checkout -- 撤销上一步修改
+## 3.6. git checkout -- 
+撤销上一步修改
 ## 3.7. git 远程操作
 ### 3.7.1. git remote add 远程名字 远程地址
 添加远程地址
