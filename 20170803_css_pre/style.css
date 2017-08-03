@@ -1,0 +1,29 @@
+#Main{
+    width:100px;
+    height:100px;
+    background:#0f0;
+    border-top: 10px double #00f;
+    border-bottom:10px solid brown;
+    border-left:10px dashed #ff0;
+    border-right:10px dotted #0ff;
+}
+#main{
+    width:100px;
+    height:100px;
+    background:#0f0;
+    border:10px;
+    border-color:#ff0 #0ff #000;
+    border-style:solid double;
+}
+.box{
+    width:100px;
+    height:100px;
+    background:#0f0;
+    border:10px solid #ff0; 
+    margin:10px 10px 20px;
+    padding:10px; 
+     
+}
+
+var tag = document.getElementById("Main")
+tag.style.borderColor ="#0f0"
