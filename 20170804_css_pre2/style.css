@@ -1,0 +1,33 @@
+head,body{
+    margin:0; 
+    padding:0;
+}
+.comb{
+    width:100px;
+    height:100px;
+    position:absolute;
+}
+#Main{
+    background: #f0f;
+    top:0;
+}
+#Box1{
+    background: #ff0;
+    top:100px;
+}
+#Box2{
+    background: #f00;
+    top:200px;
+}
+#Box3{
+    background: #0ff;
+    top:300px;
+}
+#Box4{
+    background: #0f0;
+    top:400px;
+}
+#Box5{
+    background: #00f;
+    top:500px;
+}

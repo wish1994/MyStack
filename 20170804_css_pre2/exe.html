@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exe
+    </title>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <div id="Main" class="comb">1</div>
+    <div id="Box1"class="comb">2</div>
+    <div id="Box2"class="comb">3</div>
+    <div id="Box3"class="comb">4</div>
+    <div id="Box4"class="comb">5</div>
+    <div id="Box5"class="comb">6</div>
+
+    <script>
+       
+            
+        var Main=  document.getElementById("Main");
+        Main.onmousedown=function(){
+            document.onmousemove = function(e){
+                // console.log(e.clientX,e.clientY);         
+                Main.style.left = e.clientX-50+"px";
+                Main.style.top = e.clientY-50+"px";
+            }
+        }
+
+        // document.onmouseup = function(){ 
+        //     document.onmousemove=function(){
+        //     }
+        // }
+        
+        var Box1=  document.getElementById("Box1");
+        Box1.onmousedown=function(){
+            document.onmousemove = function(e){
+                // console.log(e.clientX,e.clientY);         
+                Box1.style.left = e.clientX-50+"px";
+                Box1.style.top = e.clientY-50+"px";
+            }
+        }
+
+        var Box2=  document.getElementById("Box2");
+        Box2.onmousedown=function(){
+            document.onmousemove = function(e){
+                // console.log(e.clientX,e.clientY);         
+                Box2.style.left = e.clientX-50+"px";
+                Box2.style.top = e.clientY-50+"px";
+            }
+        }
+
+        var Box3=  document.getElementById("Box3");
+        Box3.onmousedown=function(){
+            document.onmousemove = function(e){
+                // console.log(e.clientX,e.clientY);         
+                Box3.style.left = e.clientX-50+"px";
+                Box3.style.top = e.clientY-50+"px";
+            }
+        }
+
+        var Box4=  document.getElementById("Box4");
+        Box4.onmousedown=function(){
+            document.onmousemove = function(e){
+                // console.log(e.clientX,e.clientY);         
+                Box4.style.left = e.clientX-50+"px";
+                Box4.style.top = e.clientY-50+"px";
+            }
+        }
+
+        var Box5=  document.getElementById("Box5");
+        Box5.onmousedown=function(){
+            document.onmousemove = function(e){
+                // console.log(e.clientX,e.clientY);         
+                Box5.style.left = e.clientX-50+"px";
+                Box5.style.top = e.clientY-50+"px";
+            }
+        }
+        document.onmouseup = function(){
+                document.onmousemove = function(){
+                }
+
+        }
+        
+        Main.onmouseup=function(){
+            var x=parseInt(this.style.left);
+            var y=parseInt(this.style.top);
+            console.log(x,y);
+            if(x%10>5){
+                this.style.left=x-x%10+10+'px';
+            }else{
+                this.style.left=x-x%10+'px';
+            }
+            if(y%10>5){
+                this.style.top=y-y%10+10+'px';
+            }else{
+                this.style.top=y-y%10+'px';
+            }                
+        }
+
+    
+
+    </script>
+    
+</body>
+</html>
