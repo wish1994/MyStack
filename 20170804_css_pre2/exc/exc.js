@@ -1,6 +1,12 @@
 var move =function(dom){
+    dom.style.left=Math.random()*600+50+"px";
+    dom.style.top=Math.random()*250+50+"px";
+    var a=dom.style.left
+    var b=dom.style.top
     dom.onmousedown=function(){
         dom.style.zIndex=100;
+        dom.style.width=110;
+        dom.style.height=150;
         document.onmousemove=function(e){
             e.preventDefault();
             dom.style.left=e.clientX-50+"px";
@@ -9,6 +15,8 @@ var move =function(dom){
     }
     dom.onmouseup=function(){
         dom.style.zIndex=0;
+        dom.style.width=100;
+        dom.style.height=140;
         var x =parseInt(dom.style.left);
         var y =parseInt(dom.style.top);
         if(x%10>5){
@@ -53,30 +61,7 @@ document.onmouseup=function(){
     var y4 =parseInt(L5.style.top);
     var x5 =parseInt(L6.style.left);
     var y5 =parseInt(L6.style.top);
-    if(x1-x==100){
-        console.log(1)
-        if(y1-y==0){
-            if(x2-x1==100){
-                if(y2-y==0){
-                    if(x3==x){
-                        if(y3-y==140){
-                            if(x4-x==100){
-                                if(y4-y==140){
-                                    if(x5-x==200){
-                                        if(y5-y==140){
-                                            alert("恭喜过关")
-                                        }
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-                }
-
-            }
-
-        }
-        
+    if(x1-x==100&&y1-y==0&&x2-x1==100&&y2-y==0&&x3-x==0&&y3-y==140&&x4-x3==100&&y4-y3==0&&x5-x4==100&&y5-y4==0){
+        alert("恭喜过关！")
     }
 }
