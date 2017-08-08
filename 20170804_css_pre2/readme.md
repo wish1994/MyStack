@@ -2,16 +2,16 @@
 
 # position
 
-css 属性
+    css 属性
 
-position:relative
+    position:relative
 
     相对于原来的位置，进行偏移
     left 从左(left)往右的偏移量
 
     相当于还在原位置，不会对周边元素产生影响
 
-position:absolute
+    position:absolute
 
     相对于参照物进行 定位
     left 距参照物左边(left)边框的距离
@@ -32,7 +32,7 @@ position:absolute
     this 代表 function
 
 # Js %
-    
+
     取余运算
 
 # Js if else
@@ -43,7 +43,7 @@ position:absolute
 
     转化为整数
 
-# Js 逻辑运算
+    # Js 逻辑运算
 
     >
     >=
@@ -56,6 +56,6 @@ position:absolute
     ||  or
     !   not
 
-# Js Math
+    # Js Math
 
-Math.random() 0 - 1 并且不包含1
+    Math.random() 0 - 1 并且不包含1
