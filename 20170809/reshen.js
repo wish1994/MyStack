@@ -17,15 +17,3 @@ setInterval(function(){
     }
 },10)
 
-var goal=prompt("你得了多少分")
-if(0<=goal<=20){
-    alert("你需要留级")
-}else if(goal<=40){
-    alert("你需要重修")        
-}else if(goal<=60){
-    alert("你需要补考")        
-}else if(goal<=80){
-    alert("还需努力")        
-}else{
-    alert("good job!")        
-}
