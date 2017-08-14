@@ -12,7 +12,7 @@ setInterval(function(){
     count++;
     var Lv=5*Math.cos(Ljiao);//Lv表示横向速度
     var Rv=5*Math.cos(Rjiao);//Lv表示纵向速度
-    console.log(Lv,Rv);
+    console.log(Math.pow(Lv,2)+Math.pow(Rv,2));
 
     if(uptodown){
         balltop+=Rv;
