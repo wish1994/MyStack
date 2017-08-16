@@ -13,6 +13,16 @@
 - [5. 表单（部分内容）](#5-表单部分内容)
     - [5.1. 注意](#51-注意)
 - [6. 作业](#6-作业)
+- [7. Emmet语法](#7-emmet语法)
+    - [7.1. 后代：>](#71-后代)
+    - [7.2. 兄弟：+](#72-兄弟)
+    - [7.3. 上级^](#73-上级^)
+    - [7.4. 分组：()](#74-分组)
+    - [7.5. 乘法：*](#75-乘法)
+    - [7.6. id和类属性](#76-id和类属性)
+        - [7.6.1. “#”](#761-)
+        - [7.6.2. “.”](#762-)
+        - [7.6.3. “.和#可以合用”](#763-和可以合用)
 
 <!-- /TOC -->
 # 1. 文本标签
@@ -177,4 +187,71 @@ img、video、script ... 里面的 src属性，里面的地址
 
 1. 自学 Emmet [Emmet文档](http://www.w3cplus.com/tools/emmet-cheat-sheet.html)
 2. table数字练习
-3. 学习input的type [input type 官方文档](https://developer.mozilla.org/zh-CN/docs/Web/HTML/El)
+3. 学习input的type [input type 官方文档](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7)
+
+# 7. Emmet语法
+## 7.1. 后代：>
+html>head
+```html
+    <html>
+        <head></head>
+    </html>   
+```
+## 7.2. 兄弟：+
+head+body
+```html
+    <head></head>
+    <body></body>
+```
+## 7.3. 上级^
+head>title^body
+```html    
+    <head>
+        <title></title>
+    </head>
+    <body>
+    </body>
+```
+## 7.4. 分组：()
+html>(head>title)+body
+```html
+    <html>
+        <head>
+             <title></title>
+         </head>
+        <body>
+        
+         </body>
+    </html>
+```
+## 7.5. 乘法：*
+html>head+(body>dir*3)
+```html
+<html>
+    <head></head>
+    <body>
+        <dir></dir>
+        <dir></dir>
+        <dir></dir>
+    </body>
+</html>
+```
+## 7.6. id和类属性
+### 7.6.1. “#”
+body>(dir#1)+(dir#2)
+```html
+<body>
+    <dir id="1"></dir>
+    <dir id="2"></dir>
+</body> 
+```
+### 7.6.2. “.”
+body>(dir.3)+(dir.4)
+```html   
+    <body>
+        <dir class="3"></dir>
+        <dir class="4"></dir>
+    </body>
+```
+### 7.6.3. “.和#可以合用”
+略，看浏览器收藏
