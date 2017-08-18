@@ -1,15 +1,39 @@
-body *{
-    width:100px;
-    height: 100px;
-    background-color: #f00;
+a{
+    display: block;
+    width:117px;
 }
-.box{
-    background-color: #00f;
+
+a:visited{
+    background: #f00;
 }
-#Box1{
-    background-color: #0f0;
+a:hover{
+    background: #00f;
 }
-[id="Box1"]{
-    background-color: #0ff;
-    width: 200px;
+a:active{
+    background: #0f0;
+}
+
+
+
+input[type="checkbox"]{
+    display: none;
+}
+input[type="checkbox"]:checked+label {
+    border: 2px solid #f00;
+}
+label {
+    width: 400px;
+    height:400px;
+    border-radius: 50%;
+    display: block;
+    border: 2px solid #fff;
+}
+label[for="user1"]{
+    background: url(周杰伦.jpg);
+}
+label[for="user2"]{
+    background: url(林俊杰.jpg);
+}
+label[for="user3"]{
+    background: url(张学友.jpg)
 }
