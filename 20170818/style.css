@@ -1,0 +1,15 @@
+body *{
+    width:100px;
+    height: 100px;
+    background-color: #f00;
+}
+.box{
+    background-color: #00f;
+}
+#Box1{
+    background-color: #0f0;
+}
+[id="Box1"]{
+    background-color: #0ff;
+    width: 200px;
+}

@@ -1,0 +1,89 @@
+div{
+    text-align:center;
+}
+.box{
+    width:350px;
+    height:60px;
+    margin:15px;
+    padding-left: 20px;
+    font-size:16px;
+    text-align:center
+}
+.text{
+    float: left;
+    position: absolute;
+    font-size: 17px;
+}
+#username{
+    top:42px;
+    left:50px;
+}
+#setP{
+    top:139px;
+    left:50px;
+}
+#setPT{
+    top:236px;
+    left:50px;
+}
+#Mob{
+    top:333px;
+    left:50px;
+}
+#yan{
+    top:430px;
+    left:50px;
+}
+#Myan{
+    top:527px;
+    left:50px;
+}
+#email{
+    position: absolute;
+    float: left;
+    font-size:13px;
+    top:376px;
+    left:330px;    
+}
+a{
+    text-decoration:none;
+}
+#myan{
+    width:120px;
+    display: inline-block;
+    position: absolute;
+    top:415px;
+    left:273px;
+    float:left;
+}
+#getyan{
+    width:100px;
+    height:40px;
+    position: absolute;
+    top:515px;
+    left:290px;
+    float:left;
+    border:0;
+}
+#choice{
+    position: absolute;
+    float: left;
+    left:15px;
+
+
+}
+#Text{
+    position: relative;
+    float: left;
+    left:0px;
+}
+#end{
+    color: #00f;
+}
+#BuE{
+    width:350px;
+    height:60px;
+    margin:15px;
+    font-size:16px;
+    text-align:center
+}
