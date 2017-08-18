@@ -108,9 +108,9 @@ cascading style sheet
 ## 1.5. 伪类
 
     :link       a链接默认时候
-    :visited    a链接，被点击(访问)过后的时候
+    :visited    a链接，被点击(访问)过后的状态
 
-    :hover      元素被鼠标经过的时候
-    :active     元素被鼠标经过的时候
+    :hover      元素被鼠标经过的状态
+    :active     元素被鼠标经过的状态
 
     :checked    表单元素常用
