@@ -101,7 +101,7 @@ cascading style sheet
 
             content   给伪元素，添加内容，必须有该属性，伪元素才会出现
 
-    ::selection
+    ::selection (只能用于通配符)
             用于修改被选中的内容（高亮）
             经常搭配background：none在移动端使用
     
