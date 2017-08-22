@@ -84,11 +84,12 @@
 
 # 9. 转义字符
 
-    &nbsp;
-    &copy;
-    &gt；
-    &lt;
+    &nbsp;空格
+    &copy;版权
+    &gt；大于
+    &lt;小于
     &quot;引号
+    &reg;注册
 
 # 10. 颜色
 
