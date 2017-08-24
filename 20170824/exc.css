@@ -1,0 +1,56 @@
+.ten{
+    background-image: url(logo.png);
+    width: 310px;
+    height: 78px;
+
+}
+.right{
+    margin-left:60px;
+    width: 800px;
+    height: 78px;
+    background-image:url(nav-on.png);
+    background-repeat: no-repeat;
+}
+.Float{
+    float: left;
+}
+.title{
+    height: 78px;
+    float:left;
+    cursor: pointer;
+}
+.title1{
+    width: 99px;
+}
+.title2{
+    background-image:url(nav.png);
+    background-position-x:-99px;
+    width: 124px;
+}
+.title3{
+    background-image:url(nav.png);
+    background-position-x:-223px;
+    width: 146px;
+}
+.title4{
+    background-image:url(nav.png);
+    background-position-x:-369px;
+    width: 120px;
+}
+.title5{
+    background-image:url(nav.png);
+    background-position-x:-489px;
+    width: 124px;
+}
+.title6{
+    background-image:url(nav.png);
+    background-position-x:-613px;
+    width: 125px;
+}
+
+.title:hover{
+    background-image: none;
+}
+
+
+
