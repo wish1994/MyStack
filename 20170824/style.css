@@ -1,0 +1,9 @@
+.container{
+    width: 400px;
+    height: 400px;
+    background-color: #f00;
+    background-image: url("../20170821/胡歌.jpg");
+    /* background-repeat: space; */
+    background-size:cover;
+
+}
