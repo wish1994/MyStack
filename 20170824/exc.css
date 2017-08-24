@@ -1,4 +1,4 @@
-.logo{
+#Nav .logo{
     background-image: url(logo.png);
     width: 310px;
     height: 78px;
@@ -8,13 +8,12 @@
     margin-left:60px;
     width: 800px;
     height: 78px;
-    background-image:url(nav-on.png);
+    background-image:url(nav.png);
     background-repeat: no-repeat;
     float: left;
 }
 
 .NavItem{
-    background-image:url(nav.png);
     height: 78px;
     float:left;
     cursor: pointer;
@@ -44,10 +43,10 @@
 }
 
 .NavItem:hover{
-    background-image: none;
+    background-image:url(nav-on.png);
 }
 .NavItem.selected{
-    background-image: none;
+    background-image:url(nav-on.png);
 }
 
 
