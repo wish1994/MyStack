@@ -1,54 +1,50 @@
 #Nav .logo{
-    background-image: url(logo.png);
-    width: 310px;
-    height: 78px;
-    float: left;
+	background-image: url(logo.png);
+	width: 310px;
+	height: 78px;
+	float: left;
 }
 .Nav-right{
-    margin-left:60px;
-    width: 800px;
-    height: 78px;
-    background-image:url(nav.png);
-    background-repeat: no-repeat;
-    float: left;
+	margin-left: 60px;
+	width: 800px;
+	height: 78px;
+	background-image: url(nav.png);
+	background-repeat: no-repeat;
+	float: left;
 }
 
 .NavItem{
-    height: 78px;
-    float:left;
-    cursor: pointer;
+	height: 78px;
+	float: left;
+	cursor: pointer;
 }
 .NavItem1{
-    width: 99px;
+	width: 99px;
 }
 .NavItem2{
-    background-position-x:-99px;
-    width: 124px;
+	background-position-x: -99px;
+	width: 124px;
 }
 .NavItem3{
-    background-position-x:-223px;
-    width: 146px;
+	background-position-x: -223px;
+	width: 146px;
 }
 .NavItem4{
-    background-position-x:-369px;
-    width: 120px;
+	background-position-x: -369px;
+	width: 120px;
 }
 .NavItem5{
-    background-position-x:-489px;
-    width: 124px;
+	background-position-x: -489px;
+	width: 124px;
 }
 .NavItem6{
-    background-position-x:-613px;
-    width: 125px;
+	background-position-x: -613px;
+	width: 125px;
 }
 
 .NavItem:hover{
-    background-image:url(nav-on.png);
+	background-image: url(nav-on.png);
 }
 .NavItem.selected{
-    background-image:url(nav-on.png);
+	background-image: url(nav-on.png);
 }
-
-
-
-

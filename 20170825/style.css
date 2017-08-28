@@ -1,0 +1,27 @@
+.container{
+	background: #73d973;
+	width: 300px;
+	height: 200px;
+	font: 30px/200px yahei;
+	color: #ffffff;
+	text-align: center;
+	position: relative;
+}
+.tri{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 0;
+	left: 300px;
+	background-image: url(angle.png);
+	background-color: #ffffff;
+	background-size: 0;
+	background-position: 0 100%;
+	transition: all 1s;
+}
+.container:hover .tri{
+	background-size: 40px;
+	width: 40px;
+	height: 40px;
+	left: 260px;
+}
