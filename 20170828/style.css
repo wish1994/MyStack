@@ -122,7 +122,7 @@
 
 .container-b{
 	width: 952px;
-	height: 1283px;
+	height: 1157px;
 	margin: auto;
 }
 #Choice{
@@ -216,7 +216,7 @@
 	height: 20px;
 	background: #ffffff;
 	text-align: center;
-	position: absolute;
+	position: relative;
 	top: -9px;
 	left: 442px;
 	font: bold 13px yahei;
@@ -227,8 +227,7 @@
 .picture-T{
 	width: inherit;
 	height: 300px;
-	position: absolute;
-	top: 848px;
+	margin-top: 60px;
 }
 
 .picture{
@@ -260,8 +259,7 @@
 	background: #2d3237;
 	font: 20px/32px yahei;
 	text-align: center;
-	position: relative;
-	top: 418px;
+	margin-top: 56px;
 }
 .text1{
 	color: #ff0000;
@@ -276,8 +274,7 @@
 	background: #2d3237;
 	border-top: 9px solid #ffffff;
 	border-bottom: 9px solid #ffffff;
-	position: absolute;
-	top: 1238px;
+	position: relative;
 }
 
 .aboutus{
@@ -293,8 +290,7 @@
 }
 
 .description{
-	position: absolute;
-	top: 1281px;
+	margin-top: 28px;
 	width: inherit;
 	height: 76px;
 	text-align: center;
@@ -317,19 +313,18 @@
 	background: #2d3237;
 	font: 20px/32px yahei;
 	text-align: center;
-	position: absolute;
-	top: 1455px;
+	margin-top: 84px;
 }
 
 
 .SP{
+	position: relative;
+	top: 1px;
 	width: inherit;
 	height: 2px;
 	background: #2d3237;
 	border-top: 9px solid #ffffff;
 	border-bottom: 9px solid #ffffff;
-	position: absolute;
-	top: 1488px;
 }
 
 .sp{
@@ -337,7 +332,7 @@
 	height: 20px;
 	background: #ffffff;
 	text-align: center;
-	position: absolute;
+	position: relative;
 	top: -9px;
 	left: 442px;
 	font: bold 13px yahei;
@@ -346,8 +341,7 @@
 
 
 .progress{
-	position: absolute;
-	top: 1543px;
+	margin-top: 37px;
 	height: 26px;
 	width: inherit;
 }
@@ -396,10 +390,8 @@
 	height: 119px;
 	background: #eaeaea;
 	border-top: 1px solid #b4b4b4;
-	position: absolute;
-	top: 1700px;
 	text-align: center;
 	font: bold 13px yahei;
-	line-height: 16px;
+	line-height: 12px;
 	word-spacing: 4px;
 }

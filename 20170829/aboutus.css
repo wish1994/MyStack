@@ -1,0 +1,194 @@
+.container{
+	width: 1222px;
+	height: 940px;
+	margin: auto;
+	overflow: hidden;
+}
+.tel{
+	width: 1222px;
+	height: 32px;
+	background: #ebebeb;
+	position: relative;
+}
+.tel-logo{
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 815px;
+	bottom: 2px;
+	background-image: url(./image/tel.png);
+	background-repeat: no-repeat;
+}
+.tel-number{
+	position: absolute;
+	width: 236px;
+	height: 24px;
+	font: 16px/24px yahei;
+	right: 141px;
+	bottom: 2px;
+}
+.blank{
+	width: inherit;
+	height: 3px;
+	background: #ebebeb;
+	margin-top: 1px;
+}
+
+
+
+
+#Nav{
+	width: inherit;
+	height: 102px;
+	position: relative;
+}
+.logo{
+	float: left;
+	margin: 42px 90px 22px 145px;
+	background-image: url(./image/logo.png);
+	width: 195px;
+	height: 39px;
+}
+.nav-T{
+	position: absolute;
+	left: 430px;
+	top: 46px;
+}
+.nav{
+	float: left;
+	width: 85px;
+	height: 32px;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+}
+.line{
+	float: left;
+	width: 1px;
+	height: 16px;
+	background: #ebebeb;
+	margin: 0 8px 18px 8px;
+}
+.nav:hover{
+	font-weight: bold;
+	border-bottom: 3px solid #000000;
+}
+.selected{
+	font-weight: bold;
+	border-bottom: 3px solid #000000;
+}
+
+
+.banner{
+	width: 1222px;
+	height: 400px;
+	background-image: url(./image/banner.png);
+	position: relative;
+}
+
+
+.lianjie{
+	width: 374px;
+	height: 72px;
+	margin: auto;
+	margin-top: 158px;
+}
+.lianjie-a{
+	width: 374px;
+	height: 72px;
+	display: block;
+}
+
+.box-R{
+	width: 27px;
+	height: 112px;
+	position: absolute;
+	right: 0;
+	top: 99px;
+}
+.telNumber{
+	background: #ff0000;
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	left: 27px;
+	color: #ffffff;
+	font: 18px simsun;
+	transition: all 0.4s;
+}
+.box-R:hover .telNumber{
+	left: -100px;
+}
+
+.container-b{
+	width: 953px;
+	height: 255px;
+	margin: auto;
+}
+
+.about{
+	width: inherit;
+	height: 32px;
+	background: #2d3237;
+	font: 20px/32px yahei;
+	text-align: center;
+	margin-top: 32px;
+}
+.text1{
+	color: #ff0000;
+}
+.text2{
+	color: #ffffff;
+}
+
+.AboutUs{
+	width: inherit;
+	height: 2px;
+	background: #2d3237;
+	border-top: 9px solid #ffffff;
+	border-bottom: 9px solid #ffffff;
+	position: relative;
+}
+
+.aboutus{
+	width: 76px;
+	height: 20px;
+	background: #ffffff;
+	text-align: center;
+	position: absolute;
+	top: -9px;
+	left: 442px;
+	font: bold 13px yahei;
+	color: #2d3237;
+}
+
+.description{
+	margin-top: 28px;
+	width: inherit;
+	height: 76px;
+	text-align: center;
+}
+#d1{
+	font-size: 16px;
+	line-height: 10px;
+	color: #666666;
+}
+
+#d2 , #d3{
+	font-size: 14px;
+	line-height: 9px;
+	color: #666666;
+}
+
+
+#End{
+	padding-top: 20px;
+	width: inherit;
+	height: 119px;
+	background: #eaeaea;
+	border-top: 1px solid #b4b4b4;
+	text-align: center;
+	font: bold 13px yahei;
+	line-height: 12px;
+	word-spacing: 4px;
+}
