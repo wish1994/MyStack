@@ -1,0 +1,190 @@
+html , body{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-image: url(../images/bg.png);
+	margin-top: 0;
+}
+
+
+.to{
+	width: 100px;
+	height: 40px;
+	font: 20px/40px simsun,arial;
+	color: #ffff00;
+	text-align: center;
+	background-image: url(../images/content.png);
+}
+.to-bottom{
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+.to-top{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+}
+
+.container{
+	width: 1000px;
+	height: 1500px;
+	margin: auto;
+	margin-top: 100px;
+}
+.title-T{
+	width: 295px;
+	height: 45px;
+	background-image: url(../images/title.png);
+	margin: auto;
+}
+.mysite{
+	width: inherit;
+	height: 30px;
+	text-align: center;
+	font: bold 18px/30px simsun,arial;
+	color: #252d32;
+}
+.site-description{
+	width: inherit;
+	height: 20px;
+	font: italic 14px/20px yahei,arial;
+	color: #8f8f8f;
+	text-align: center;
+	display: inline-block;
+}
+#Nav{
+	width: 900px;
+	height: 80px;
+	background-color: #f44c31;
+	margin: auto;
+	margin-top: 50px;
+}
+li{
+	list-style: none;
+}
+#Nav a{
+	display: block;
+	width: 100px;
+	text-align: center;
+	float: left;
+	font: bold 20px/80px "黑体",arial;
+	color: #ffffff;
+	margin-left: 30px;
+}
+#Nav a:hover{
+	font-size: 22px;
+	background: #ffffff;
+	color: #f44c31;
+}
+.content{
+	width: 1000px;
+	height: 960px;
+	background: #ffffff;
+}
+.clear-top::before , .clear-top:before{
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.shadow{
+	width: inherit;
+	height: 40px;
+	background-image: url(../images/shadow.png);
+}
+
+
+#banner{
+	width: 800px;
+	height: 360px;
+	background-image: url(../images/runningman.png);
+	margin: auto;
+	margin-top: 20px;
+	animation: banner-move 8s linear infinite;
+	border: 5px solid;
+	border-image: url(../images/xiangkuang.png) 50 stretch;
+}
+@keyframes banner-move{
+	0%{
+		background-position-x: 0 ;
+	}
+	15%{
+		background-position-x: 0 ;
+	}
+	50%{
+		background-position-x: -800px;
+	}
+	65%{
+		background-position-x: -800px;
+	}
+	100%{
+		background-position-x: 0;
+	}
+}
+.line{
+	width: inherit;
+	height: 10px;
+	background-image: url(../images/string.png);
+	margin-top: 20px;
+	position: relative;
+}
+.bird{
+	position: absolute;
+}
+.bird1{
+	width: 64px;
+	height: 64px;
+	top: -56px;
+	background-image: url(../images/bird1.png);
+}
+.bird2{
+	width: 80px;
+	height: 80px;
+	right: 10px;
+	top: -200px;
+	background-image: url(../images/bird2.png);
+	background-repeat: no-repeat;
+}
+
+.mulu{
+	text-align: center;
+	font: bold 28px yahei;
+	color: #00dcff;
+}
+.title{
+	font: bold 24px simsun,arial;
+	color: #000400;
+	margin-top: 30px;
+	text-align: center;
+}
+.post-nav{
+	font: bold 20px arial;
+	margin-top: 50px;
+	text-align: center;
+}
+.category{
+	float: right;
+}
+.category a{
+	font: 16px arial;
+	color: #034e39;
+}
+
+.content-left , .content-right{
+	float: left;
+	margin-top: 20px;
+}
+.content-left{
+	margin-left: 35px;
+	width: 650px;
+	height: 500px;
+	background: rgba(229, 222, 214,0.5);
+}
+.content-right{
+	margin-left: 30px;
+	width: 250px;
+	height: 500px;
+	background: rgba(229, 222, 214,0.5);
+}

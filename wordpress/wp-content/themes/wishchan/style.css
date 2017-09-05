@@ -1,0 +1,24 @@
+/* 
+Theme Name:wishchan
+Theme URI:C:\wamp\www\wp-content\themes\wishchan\index.php
+Author:wishchan
+Author URI:wishchan.top
+
+*/
+html , body{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+.clear-top::before , .clear-top:before{
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+.clear-float::after , .clear-float::after{
+	content: "";
+	display: block;
+	clear: both;
+}
