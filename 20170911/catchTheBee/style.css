@@ -1,0 +1,55 @@
+body{
+	background-image: url(bg.jpg);
+	background-size: 1366px 680px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.box{
+	width: 80px;
+	height: 80px;
+	animation: boxmove 2s linear infinite;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 1s;
+}
+.bee{
+	width: 70px;
+	height: 70px;
+	background-image: url(bee.gif);
+	background-size: 70px 70px;
+	animation: beemove 2s linear infinite;
+	position: relative;
+}
+.words{
+	width: 160px;
+	height: 30px;
+	background: #ffffff;
+	border: 1px solid #000000;
+	position: absolute;
+	top: -30px;
+	left: 20px;
+	display: none;
+	font: 16px/30px simsun,arial;
+	text-align: center;
+}
+
+@keyframes boxmove{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes beemove{
+	0%{
+		transform: rotate(360deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}
+
+
