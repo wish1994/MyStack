@@ -4,6 +4,14 @@ body{
 	background-repeat: no-repeat;
 	overflow: hidden;
 }
+#Bee{
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	transition: all 1s;
+	left: 0;
+	top: 0;
+}
 .box{
 	width: 80px;
 	height: 80px;
@@ -11,13 +19,12 @@ body{
 	position: absolute;
 	top: 0;
 	left: 0;
-	transition: all 1s;
 }
 .bee{
-	width: 70px;
-	height: 70px;
+	width: 60px;
+	height: 60px;
 	background-image: url(bee.gif);
-	background-size: 70px 70px;
+	background-size: 60px 60px;
 	animation: beemove 2s linear infinite;
 	position: relative;
 }
@@ -28,7 +35,7 @@ body{
 	border: 1px solid #000000;
 	position: absolute;
 	top: -30px;
-	left: 20px;
+	left: 40px;
 	display: none;
 	font: 16px/30px simsun,arial;
 	text-align: center;

@@ -1,0 +1,36 @@
+.container{
+	width: 400px;
+	height: 540px;
+	perspective: 1000px;
+	margin: 30px auto 0;
+}
+.container > *{
+	position: absolute;
+}
+.Picture{
+	width: 400px;
+	height: 540px;
+	background-image: url(li.jpg);
+	background-size: cover;
+	left: 0;
+	top: 0;
+}
+.Pborder{
+	width: 340px;
+	height: 480px;
+	border: 10px solid #ffffff;
+	left: 20px;
+	top: 20px;
+}
+
+.Ptext p{
+	margin: 2px;
+	font: 14px simsun;
+	color: #ffffff;
+	text-shadow: 2px 2px 0 #000000;
+}
+.Ptext{
+	position: absolute;
+	bottom: 40px;
+	left: 36px;
+}
