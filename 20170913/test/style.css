@@ -1,0 +1,65 @@
+.banner{
+	width: 300px;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+	margin: auto;
+}
+.box{
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	top: 0;
+	left: 0;
+	transition: all 1s;
+}
+.box1{
+	background-image: url(p1.jpg);
+	animation: move 10s linear infinite;
+}
+.box2{
+	background-image: url(p2.jpg);
+	animation: move 10s linear -2s infinite;
+}
+.box3{
+	background-image: url(p3.jpg);
+	animation: move 10s linear -4s infinite;
+}
+.box4{
+	background-image: url(p4.jpg);
+	animation: move 10s linear -6s infinite;
+}
+.box5{
+	background-image: url(p5.jpg);
+	animation: move 10s linear -8s infinite;
+}
+
+
+@keyframes move{
+	0%{
+		top: 0;
+		left: 0;
+	}
+	20%{
+		top: 0;
+		left: -300px;
+	}
+
+	40%{
+		top: -200px;
+		left: -300px;
+	}
+
+	60%{
+		top: -200px;
+		left: 300px;
+	}
+	80%{
+		top: 0;
+		left: 300px;
+	}
+	100%{
+		top: 0;
+		left: 0;
+	}
+}

@@ -24,6 +24,7 @@
         Ptext.style.bottom=40+ry+"px";
         
         
+        
 
     }
 

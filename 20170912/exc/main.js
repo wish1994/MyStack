@@ -21,6 +21,7 @@
         star2.style.top=168+0.2*ty+"px";
         star3.style.top=100+0.4*ty+"px";
         star4.style.top=200+0.6*ty+"px";
+        banner.style.backgroundPosition="("+-0.1*lx+"px "+-0.1*ty+"px)"
         
     }
 
