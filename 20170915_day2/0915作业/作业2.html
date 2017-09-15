@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业2</title>
+</head>
+<body>
+    请输入一个整数
+    <input type="text" id="num">
+    <br>
+    <input type="button"  value="查看奇偶数" onclick="count()">
+    <br>
+    <input type="text" id="consult">
+</body>
+<script>
+    function count(){
+        var num=document.querySelector("#num");
+        var consult=document.querySelector("#consult");
+        var a=num.value;
+        if(a%2==0){
+            consult.value="是偶数";
+        }else{
+            consult.value="是奇数";
+            
+        }
+    }
+</script>
+</html>

@@ -43,7 +43,7 @@ document.write("<br>");
 document.write("第五题");
 document.write("<br>");
 var c=10;
-for(i=1;i<50;i++){
+for(i=1;i<51;i++){
     c=c*1.05
 }
 document.write(c);

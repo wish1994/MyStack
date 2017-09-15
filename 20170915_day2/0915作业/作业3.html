@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业3</title>
+</head>
+<body>
+    请输入身高(cm)
+    <input type="text" id="Mheight">
+    <br>
+    请输入身高(斤)
+    <input type="text" id="Mweight">
+    <br>
+    <input type="button" value="查看是否合适" onclick="count()">
+    <br>
+    <input type="text" id="consult">
+</body>
+<script>
+    function count(){
+        var Mheight=document.querySelector("#Mheight");
+        var Mweight=document.querySelector("#Mweight");
+        var consult=document.querySelector("#consult");
+        var a=Mheight.value;
+        var b=Mweight.value;
+        var c=(a-108)*2;
+        var d=Math.abs(b-c);
+        if(d>10){
+            consult.value="身高体重不合适"
+        }else{
+            consult.value="身高体重合适"
+        }
+    }
+</script>
+</html>
