@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拓展4</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a=prompt("请输入工作了几年");
+    var b=prompt("请输入月薪");
+    var c;
+    if(a=0){
+        if(b>8000){
+            c=b*1.2;
+            alert("你的月薪年终奖为"+c)
+        }else{
+            alert("你的月薪年终奖为"+b)            
+        }
+    }else if(a=1){
+        if(b>10000){
+            c=b*1.7;
+            alert("你的月薪年终奖为"+c)
+        }else{
+            c=b*1.5;           
+            alert("你的月薪年终奖为"+c)            
+        }
+    }else if(a>=2){
+        if(b>12000){
+            c=b*3.2;
+            alert("你的月薪年终奖为"+c)
+        }else{
+            c=b*3;           
+            alert("你的月薪年终奖为"+c)            
+        }
+    }
+</script>
+</html>
