@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业9</title>
+</head>
+<body>
+    列出1~10000的所有质数
+    <br>
+</body>
+<script>
+    var c=0;
+    for(var a=1;a<=10000;a++){
+        var count=0;
+        for(var b=2;b<=a-1;b++){
+            if(a%b==0){
+                count++;
+            }
+        }
+        if(count==0){
+            document.write(a+"&nbsp;");
+            c++;
+            if(c%30==0){
+                document.write("<br>")
+            }            
+        }
+    }
+</script>
+</html>

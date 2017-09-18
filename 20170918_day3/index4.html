@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var a=0;
+    // while(a<=100){
+    //     document.write(a+"&nbsp;");
+    //     a+=2;
+    // }
+
+
+    // while(a<=100){
+    //     if(a%7==0){
+    //     document.write(a+"&nbsp;");
+    //     }
+    //     a++;
+    // }
+
+
+    // var a=0;
+    // var sum=0;
+    // while(a<100){
+    //     a++;
+    //     sum+=a;       
+    // }
+    // document.write(sum)
+
+
+    // for(a=100;a>=1;a-=1){
+    //     document.write(a+"&nbsp;")
+    // }
+
+    // while(true){
+    //     a=prompt();
+    //     if(a==5){
+    //         break;
+    //     }
+    // }
+
+    // for(var a=1;a<=100;a++){
+    //     document.write("*");
+    //     if(a%10==0){
+    //         document.write("<br>")
+    //     }
+    // }
+    // for(var a=1;a<=5;a++){
+    //     for(var b=1;b<=a;b++){
+    //         document.write("*")
+    //     }
+    //     document.write("<br>")
+    // }
+    for(var a=100;a<=200;a++){
+        var count=0;
+        for(var b=2;b<=a-1;b++){
+            if(a%b==0){
+                count++;
+            }
+        }
+        if(count==0){
+            document.write(a+"是质数"+"&nbsp;")
+        }
+    }
+</script>
+</html>
