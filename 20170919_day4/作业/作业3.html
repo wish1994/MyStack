@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业3</title>
+</head>
+<body>
+        编写一个函数rev用于将一个整数前后倒置。
+        <br>
+</body>
+<script>
+    function sum(a){
+        var s=0;
+        while(a){
+            s=s*10 +a%10;
+            a=parseInt(a/10);
+        }
+        return s;
+    }
+    document.write("12345的倒置为"+sum(12345));
+</script>
+</html>
