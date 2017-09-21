@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业6</title>
+</head>
+<body>
+        将div#demo.demo转化成&lt;div id="demo" class="demo"&gt;&lt;/div&gt;
+        <br>
+        <br>
+</body>
+<script>
+ var str = ("div#demo.demo").replace(/^\b(\w+)\b#\b(\w+)\b\.\b(\w+)\b$/,function(match,$1,$2,$3){
+    return "<"+$1+" id=\"" + $2+ "\" class=\""+ $3+ "\"><\/" + $1 +">"
+})
+console.log(str);
+document.write("转化结果可以在控制台查看"+str)
+
+</script>
+</html>

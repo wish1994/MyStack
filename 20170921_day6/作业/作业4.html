@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业4</title>
+</head>
+<body>
+        实现trim(str)方法，过滤字符串首位空白
+        <br>
+</body>
+<script>
+    function trim(str){
+        str = str.replace(/\s{1}/,"");
+        return str;
+
+    }
+    document.write("trim('i love you')的结果是"+trim("i love you"))
+</script>
+</html>

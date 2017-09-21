@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业8</title>
+</head>
+<body>
+        检测昵称是否是有汉字字母数字下划线组成，6-8位
+        <br>
+        <br>
+        <input type="text" id="text">
+        <input type="button" value="检测" onclick="con()">
+</body>
+<script>
+    function con(){
+        var text=document.querySelector("#text");
+        var str =text.value;
+        var reg=reg = /^[a-zA-Z\d\_\u2E80-\u9FFF]{6,8}$/;
+        if(reg.test(str)){
+            alert("您输入的昵称符合要求")
+        }else{
+            alert("请重新输入由汉字字母数字下划线组成的6-8位的昵称")            
+        }
+    }
+</script>
+</html>

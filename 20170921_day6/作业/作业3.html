@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业3</title>
+</head>
+<body>
+        将用户输入的网址全部转化成我们的官网。如www.baidu.com=>www.ucai.com  
+        <br>
+        <input type="text" id="text">
+        <input type="button" value="检测" onclick="con()">
+</body>
+<script>
+    function con(){
+        var text=document.querySelector("#text");
+        var str=text.value;
+        var reg=/^\w{3}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/;
+        if(reg.test(str)){
+            text.value="www.ucai.com"
+        }else{
+            text.value="不是网址"            
+        }
+
+    }
+</script>
+</html>

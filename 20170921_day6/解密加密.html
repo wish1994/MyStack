@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wishchan解密加密</title>
+</head>
+
+<body>
+    <input type="text" id="text">
+    <input type="button" value="加密" onclick="con()">
+    <input type="button" value="解密" onclick="con1()">
+</body>
+<script>
+    var text=document.querySelector("#text");
+    function con(){
+    var str=text.value;
+        var str1=""
+        text.value='';
+        for(i=0;i<str.length;i++){
+            str1=str.charCodeAt(i);
+            text.value+=(str1+",");
+        }
+    }
+    function con1(){
+        var str=text.value;
+        var arr=str.split(",")
+        var str1='';
+        for(i=0;i<arr.length-1;i++){
+            str1+=String.fromCharCode(arr[i]);
+        }
+        text.value=str1;
+    }
+    
+</script>
+</html>

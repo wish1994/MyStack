@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业2</title>
+</head>
+<body>
+        检测是否是本地电话，如010-12345678,0418-12345678
+        <br>
+        <input type="text" id="text">
+        <input type="button" value="检测" onclick="con()">
+</body>
+<script>
+    function con(){
+        var text=document.querySelector("#text");
+        var str=text.value;
+        var reg=/^\d{3,4}\-{1}\d{8}$/;
+        if(reg.test(str)){
+            text.value="是本地电话"
+        }else{
+            text.value="不是本地电话"            
+        }
+
+    }
+</script>
+</html>
