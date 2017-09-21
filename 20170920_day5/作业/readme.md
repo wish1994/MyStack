@@ -60,14 +60,14 @@ yangjie.length = 1;
 
 # for-in
 遍历集合，注意参数为下标
-
+```js
 // 遍历 arr， i 就代表所有的下标
 /// 通过下标得到具体的元素 arr[i]
 // 快速枚举的方式
 for (var i in arr) {
 	document.write(arr[i] + ", ");
 }
-
+```
 
 # 引用类型
 
@@ -88,7 +88,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects
 
 ## 字符串查找
 
-```
+```js
 
 var s1 = "1ab23***abc123";
 
