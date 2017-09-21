@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业7</title>
+</head>
+<body>
+        有10个学生的成绩存在数组中，请统计大于等于平均成绩的人数。 成绩直接以数组形式写在程序中，不需要用户输入。
+        <br>
+        分数分别为50,55,60,65,70,75,80,85,90,95。
+        <br>
+        <br>
+</body>
+<script>
+    var goal=[50,55,60,65,70,75,80,85,90,95];
+    var sum=0;
+    var count=0;
+    for(i=0;i<goal.length;i++){
+        sum+=goal[i]
+    }
+    var avg=sum/goal.length;
+    for(i=0;i<goal.length;i++){
+        if(goal[i]>=avg){
+            count++;
+        }
+    }
+    document.write("大于等于平均成绩的人数为"+count)
+
+</script>
+</html>

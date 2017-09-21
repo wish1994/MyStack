@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业8</title>
+</head>
+<body>
+        有10个学生的成绩存在数组中，请统计最高分，最低分，并将最高分和最低分学生的下标输出到控制台。
+        <br>
+        分数分别为65,70,95,75,85,55,90,50,80,60。
+</body>
+<script>
+    var goal=[65,70,95,75,85,55,90,50,80,60];
+    var a=[];
+    for(i=0;i<goal.length;i++){
+        a[i]=goal[i];
+    }
+    function sortNumber(m,n){
+        return m - n
+    }
+    a=a.sort(sortNumber);
+    for(i=0;i<goal.length;i++){
+        if(goal[i]==a[a.length-1]){
+            console.log("最高分下标为"+i)
+        }else if(goal[i]==a[0]){
+            console.log("最低分下标为"+i)
+        }
+    }
+
+
+</script>
+
+</html>

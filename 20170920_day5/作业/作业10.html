@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业10</title>
+</head>
+<body>
+    编写函数maxsame(char1,char2) 返回字符串char1和char2的最大相同子串 比如maxsame("abcdefghijklmn","mndefghlm") 返回"defgh"。
+    <br>
+    <br>
+</body>
+<script>
+    function maxsame(str1,str2){  
+        if(str1.length>str2.length){  
+            shorter = str2;  
+            longer = str1  
+        }else{  
+            shorter = str1;  
+            longer = str2;  
+        }  
+        for(var subLength = shorter.length;subLength>0;subLength--){  
+            for(var i = 0;i+subLength<=shorter.length;i++){  
+                var subString =shorter.substring(i,i+subLength);  
+                    // debugger;  
+                if(longer.indexOf(subString)>=0){  
+                    targetString = subString;  
+                    return targetString;  
+                }  
+            }  
+        }  
+    }  
+    document.write("maxsame('abcdefghijklmn','mndefghlm')的结果是"+maxsame("abcdefghijklmn","mndefghlm"))
+</script>    
+</html>
