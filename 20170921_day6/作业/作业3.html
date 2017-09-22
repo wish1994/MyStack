@@ -16,7 +16,7 @@
     function con(){
         var text=document.querySelector("#text");
         var str=text.value;
-        var reg=/^\w{3}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/;
+        var reg=/^www\.[a-zA-Z0-9]+\.com$/;
         if(reg.test(str)){
             text.value="www.ucai.com"
         }else{

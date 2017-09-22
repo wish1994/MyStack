@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    单价:123.45元
+    <br>
+    <input type="number" id="num">
+    <input type="button" value="总价" onclick="count()">
+    <br>
+    <input type="text" id="num1">    
+</body>
+<script>
+    function count(){
+        var str="单价:123.45元";
+        var a=num.value;
+        var reg=/单价:(\d+\.\d+)元/;
+        var b=str.match(reg);
+        num1.value=b[1]*a+"元";
+    }
+</script>
+</html>

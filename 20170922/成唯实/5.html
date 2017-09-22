@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第五题</title>
+</head>
+<body>
+    字符串“a,a,b,c,c,d”编程以下功能：1.统计各字母出现次数；2.去掉重复字母。
+    <br>
+    <br>
+</body>
+<script>
+    var str="a,a,b,c,c,d";
+    var arr=str.split(",");
+    var counta=0;
+    var countb=0;
+    var countc=0;
+    var countd=0;
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]=="a"){
+            counta++
+        }
+        if(arr[i]=="b"){
+            countb++
+        }
+        if(arr[i]=="c"){
+            countc++
+        }
+        if(arr[i]=="d"){
+            countd++
+        }
+    }
+    document.write("a"+counta+"、b"+countb+"、c"+countc+"、d"+countd+"</br>")
+    for(var i=0;i<arr.length;i++){
+        for( var a=i+1;a<arr.length;a++){
+            if(arr[a]==arr[i]){
+                arr[a]="";
+            }
+        }
+    }
+    var arr1=arr.join("");
+    arr1.toString();
+    document.write(arr1);
+    
+</script>
+</html>

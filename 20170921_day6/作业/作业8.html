@@ -17,7 +17,7 @@
     function con(){
         var text=document.querySelector("#text");
         var str =text.value;
-        var reg=reg = /^[a-zA-Z\d\_\u2E80-\u9FFF]{6,8}$/;
+        var reg=/^[a-zA-Z\d\_\u2E80-\u9FFF]{6,8}$/;
         if(reg.test(str)){
             alert("您输入的昵称符合要求")
         }else{

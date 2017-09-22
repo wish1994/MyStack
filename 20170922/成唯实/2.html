@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二题</title>
+</head>
+<body>
+    用户输入3位数，球各数位之和。
+</body>
+<script>
+    var num=prompt("请输入一个三位数");
+    var a=num%10;
+    var b=parseInt((num%100)/10);
+    var c=parseInt(num/100);
+    var sum=a+b+c;
+    alert("各数位之和为"+sum);
+</script>
+</html>

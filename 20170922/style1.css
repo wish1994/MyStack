@@ -1,0 +1,15 @@
+.container{
+	width: 200px;
+	height: 200px;
+	background: #ff0000;
+}
+.box{
+	width: 100px;
+	height: 40px;
+	background: #0000ff;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+

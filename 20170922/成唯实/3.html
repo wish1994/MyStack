@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第三题</title>
+</head>
+<body>
+    从1计数到100，遇到3的倍数替换为“Flip”，5的倍数替换为“Flop”，同时为3和5的倍数则替换为“FlipFlop”
+    <br>
+
+</body>
+<script>
+    for(var i=1;i<=100;i++){
+        if((i%3==0)&&(i%5!=0)){
+            document.write("Flip&nbsp;")
+        }else if((i%3!=0)&&(i%5==0)){
+            document.write("Flop&nbsp;")
+        }else if((i%3==0)&&(i%5==0)){
+            document.write("FlipFlop&nbsp;")
+        }else{
+            document.write(i+"&nbsp;")
+        }
+    }
+</script>
+</html>
