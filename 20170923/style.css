@@ -1,0 +1,43 @@
+body , html{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 500px;
+	height: 500px;
+	background: #eeeeee;
+	margin: auto;
+	position: relative;
+}
+.box{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+}
+.box1{
+	background-image: url(./images/1.png);
+}
+.box2{
+	background-image: url(./images/2.png);
+}
+.box3{
+	background-image: url(./images/3.png);
+}
+.box4{
+	background-image: url(./images/4.png);
+}
+.box5{
+	background-image: url(./images/5.png);
+}
+.box6{
+	background-image: url(./images/6.png);
+}
+.box7{
+	background-image: url(./images/7.png);
+}
+.box8{
+	background-image: url(./images/8.png);
+}
+.box9{
+	background-image: url(./images/9.png);
+}
