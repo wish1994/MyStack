@@ -14,43 +14,43 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h0"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>篮球</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h1"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>足球</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h2"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>羽毛球</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h3"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>爬山</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h4"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>游泳</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h5"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>购物</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h6"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>看电影</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h7"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>旅游</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h8"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>音乐</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="hobby" id="h9"></td>
+                    <td><input type="checkbox" name="hobby" ></td>
                     <td>画画</td>
                 </tr>
             </tbody>
@@ -60,16 +60,26 @@
 <script>
 var all=document.getElementById("all");
 var hobby = document.getElementsByName ("hobby");
+//方法一
+// all.onclick=function(){
+//     if(all.checked){
+//         for(var i=0;i<hobby.length;i++){
+//             hobby[i].checked = 1;
+//         } 
+//     }else{
+//         for(var j=0;j<hobby.length;j++){
+//             hobby[j].checked = 0;
+//         }
+//     }
+// }
+
+//方法二
+var state=true;
 all.onclick=function(){
-    if(all.checked){
-        for(var i=0;i<hobby.length;i++){
-            hobby[i].checked = 1;
-        } 
-    }else{
-        for(var j=0;j<hobby.length;j++){
-            hobby[j].checked = 0;
-        }
+    for(var i=0;i<hobby.length;i++){
+        hobby[i].checked=state;
     }
+    state=!state;
 }
 
 </script>

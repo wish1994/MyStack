@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>拓展2</title>
-        <style>
-                .hide{display:none;}
-        
-                #div1{border:1px solid #ddd;padding:1px;}
-                #div1 h4{margin:1px;background-color:#ddd;padding:15px;}
-                #div1 .content{display:none;height:120px;padding:15px;}
-        </style>
+    <style>
+#div1{
+	border: 1px solid #dddddd;
+	padding: 1px;
+}
+#div1 h4{
+	margin: 1px;
+	background-color: #dddddd;
+	padding: 15px;
+}
+#div1 .content{
+	display: none;
+	height: 120px;
+	padding: 15px;
+}
+
+
+
+
+    </style>
 </head>
 <body>
         
@@ -31,17 +44,16 @@
 <script>
     var h=document.getElementsByTagName("h4");
     var c=document.getElementsByClassName("content")
-    function func(i){
-        h[i].onclick=function(){
-           if(c[i].style.display="none"){
-                c[i].style.display="block";
-           }else{
-                c[i].style.display="none";
-           } 
-        }
-    }
+
     for(i=0;i<h.length;i++){
-        func(i);
+        h[i].index=i;
+        h[i].onclick=function(){
+            if(c[this.index].style.display=="block"){
+                c[this.index].style.display="none"
+            }else{
+                c[this.index].style.display="block"
+            }
+        }
     }
 
 
