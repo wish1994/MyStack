@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 500px;
+            height: 130px;
+            border:2px solid #000;
+            overflow:hidden;
+            position: relative;
+        }
+
+        li{
+            list-style: none;
+            float: left;
+        }
+        /* #box{
+
+        } */
+        ul{
+           display: block;
+           width:5000px;
+           position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- <div id="box"> -->
+            <ul>
+                <li><img src="images/shuzi/0.png" alt="" /></li>
+                <li><img src="images/shuzi/1.png" alt="" /></li>
+                <li><img src="images/shuzi/2.png" alt="" /></li>
+                <li><img src="images/shuzi/3.png" alt="" /></li>
+                <li><img src="images/shuzi/4.png" alt="" /></li>
+                <li><img src="images/shuzi/5.png" alt="" /></li>
+                <li><img src="images/shuzi/6.png" alt="" /></li>
+            </ul>
+        </div>
+    <!-- </div> -->
+</body>
+<script>
+    window.onload=function(){
+        var con=document.getElementById("container");
+        var aul=document.getElementsByTagName("ul");
+        var ali=document.getElementsByTagName("li");
+        var ulWidth=0;
+        for(i=0;i<ali.length;i++){
+            ulWidth+=ali[i].offsetWidth;
+        }
+        console.log(ulWidth);
+        aul[0].innerHTML+=aul[0].innerHTML;
+        var a=0;
+        function move(){
+            a--;
+            if(a<-ulWidth){
+                a=0;
+            }
+           aul[0].style.left=a+"px";
+        }
+        var timer=setInterval(move,10);
+        con.onmouseover=function(){
+            clearInterval(timer);
+        }
+        con.onmouseout=function(){
+            timer=setInterval(move,10)
+        }
+
+
+    }
+</script>
+</html>
