@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排他</title>
+    <style>
+    p{
+        display:block;
+        background: #999;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        float: left;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+<script>
+    var ap=document.getElementsByTagName("p");
+    for(i=0;i<ap.length;i++){
+        ap[i].onmousemove=function(){
+            for(a=0;a<ap.length;a++){
+                ap[a].style.background="#999";
+            }
+            this.style.background="#f00"
+        }
+    }
+</script>
+</html>

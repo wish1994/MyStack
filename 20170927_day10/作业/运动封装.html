@@ -31,7 +31,7 @@
     <div class="box box2"></div>
 </body>
 <script>
-    function move(obj,attr,target){
+    function move(obj,attr,target,cd){
         var ostyle=getComputedStyle(obj);
         var a=parseInt(ostyle[attr]);
         console.log(a)
@@ -43,6 +43,11 @@
             }else if(a<target){
                 a++;
             }else{
+                if(cd){
+                    cd();
+                }
+                clearInterval(obj.timer);
+                
                 return;
             }
             obj.style[attr]=a+"px";
@@ -51,14 +56,26 @@
     var btn1=document.getElementById("btn1");
     var btn2=document.getElementById("btn2");
     var box=document.getElementsByClassName("box");
-    btn1.onclick=function(){
-        move(box[0],"left",500);
-    }
-    btn2.onclick=function(){
-        move(box[1],"left",800);
-    }
-    btn3.onclick=function(){
-        move(box[0],"top",600);
-    }
+    // btn1.onclick=function(){
+    //     move(box[0],"left",500);
+    // }
+    // btn2.onclick=function(){
+    //     move(box[1],"left",800);
+    // }
+    // btn3.onclick=function(){
+    //     move(box[0],"top",600);
+    // }
+    
+
+ 
+    function sp(){ move(box[0],"left",300,function(){
+                        move(box[1],"left",300,function(){
+                            move(box[0],"left",0,function(){
+                                move(box[1],"left",0,sp)
+                            })
+                        })
+                    })
+                }
+    sp();
 </script>
 </html>

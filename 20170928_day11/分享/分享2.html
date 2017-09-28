@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>以复选框为中心产生波浪式动画效果</title>
+<link href="s2.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id="container"></div>
+
+
+<script>
+var LX = 20;//横向（列数）
+var LY = 20;//纵向（行数）
+var SIZE = 22;//单位长宽
+var entities = [];//复选框的数组
+var wrapper = document.getElementById('container');//容器
+
+wrapper.className = 'wrapper';//增加类名，css里面设置样式
+wrapper.style.width = (LX * SIZE) + 'px';
+wrapper.style.height = (LY * SIZE) + 'px';//给container设置高宽
+
+//现在开始在容器里面添加复选框，运用了循环。
+for (var x = 0; x < LX; x++) {
+	for (var y = 0; y < LY; y++) {
+		var el = document.createElement('input');
+		el.setAttribute('type', 'checkbox');//设置添加的元素为复选框
+		wrapper.appendChild(el);//添加到容器里面
+		var entity = {
+			element: el,
+			x: x * SIZE,
+			y: y * SIZE
+		}//entity不是单纯的复选框，它是一个对象，包括了x和y两个位置属性
+		el.style.left = entity.x + 'px';
+		el.style.top = entity.y + 'px';//设置每个复选框的位置，x和y是从0开始的。这边复选框是竖着排的（一列一列的）
+		el.addEventListener('change', this.toggle.bind(this, entity));
+		//element.addEventListener(event, function, useCapture);
+		//addEventListener()用于给元素添加事件句柄。括号里有事件名，执行函数和布尔值（可选）。
+
+		
+		entities.push(entity)
+	}
+}
+function toggle(targetEntity) {
+	var checked = targetEntity.element.checked;//目标复选框如果checked，checked为true。
+	entities.forEach(function(entity){
+
+		var dx = targetEntity.x - entity.x;
+		var dy = targetEntity.y - entity.y;
+		var distance = Math.sqrt(dx * dx + dy * dy);//算出每个复选框到目标复选框的距离。
+
+
+		setTimeout(function() {
+			entity.element.checked = checked;
+			entity.element.className = '';
+			entity.element.offsetWidth;
+			entity.element.className = 'grow'
+		}, Math.round(distance * 1.8))//四舍五入，以目标复选框为中心，向外增加延迟变化时间
+	},1)
+}
+		
+</script>
+
+
+</body>
+</html>
