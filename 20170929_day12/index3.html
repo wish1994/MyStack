@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+#box{
+	width: 100px;
+	height: 100px;
+	background: #ff0000;
+	opacity: 0.4;
+	filter: alpha(opacity(40));
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    function getStyle(obj,attr){
+        if(window.getComputedStyle){
+            var ostyle=window.getComputedStyle(obj);
+            console.log(getComputedStyle(obj))
+        }else{
+            var ostyle=obj.currentStyle;
+        }
+        return ostyle[attr];
+    }
+    
+    function animate(obj,oattr,callback){
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function(){
+            var flag=true;
+            for(var attr in oattr){
+                var current=parseFloat(getStyle(obj,attr));
+                if(attr=="opacity"){
+                    current*=100;
+                }
+                var target=oattr[attr];
+                if(Math.abs(target-current)<=10){
+                    continue;
+                }
+                flag=false;
+                current=(target>current)?current+10:current-10;
+                if(attr=="opacity"){
+                    obj.style.opacity=current/100;
+                    obj.style.filter="alpha(opacity="+current+")";
+                }else{
+                    obj.style[attr]=current+"px";
+                }
+            }
+            if(flag==true){
+                clearInterval(obj.timer)
+                callback&&callback();
+            }
+        },100)
+    }
+
+    var box=document.getElementById("box");
+    animate(box,{"width":300,"left":500,"top":300});
+</script>
+</html>

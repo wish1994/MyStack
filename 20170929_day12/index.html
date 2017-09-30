@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+#box{
+	background: #ff0000;
+	width: 150px;
+	height: 150px;
+	opacity: 0.5;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+<script>
+    var box=document.getElementById("box");
+    function change(obj,attr,target){
+        timer=0;
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function(){
+                        var ostyle=getComputedStyle(obj);
+                        var vAttr=parseFloat(ostyle[attr]);
+                        if(vAttr==target){
+                            clearInterval(obj.timer)
+                            return;
+                        }
+                        if(attr=="opacity"){
+                            vAttr=vAttr<target?vAttr+0.1:vAttr-0.1;                            
+                            obj.style.opacity=vAttr;
+                            // obj.style.filter="alpha(opacity="+vAttr+")"
+                        }else{
+                            vAttr=vAttr<target?vAttr+10:vAttr-10;
+                            obj.style[attr]=vAttr+"px";
+                        }
+                        console.log(vAttr)
+                    },100)
+    }
+    box.onmouseover=function(){
+        change(box,"width",300)
+        box.style.opacity=0.5
+    }
+    box.onmouseout=function(){
+        change(box,"opacity",1)
+        box.style.width=150+"px";
+
+    }
+
+
+</script>
+</html>

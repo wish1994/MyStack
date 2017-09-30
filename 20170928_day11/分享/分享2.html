@@ -53,7 +53,7 @@ function toggle(targetEntity) {
 		setTimeout(function() {
 			entity.element.checked = checked;
 			entity.element.className = '';
-			entity.element.offsetWidth;
+			console.log(entity.element.offsetWidth);
 			entity.element.className = 'grow'
 		}, Math.round(distance * 1.8))//四舍五入，以目标复选框为中心，向外增加延迟变化时间
 	},1)

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+  <!-- 引入css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+	  #box{
+		  width: 400px;
+		  height: 400px;
+		  border: 1px solid #999;
+	  }
+	  #box div{
+		  float: left;
+		  margin: 10px;
+	  }
+  
+  </style>
+ </head>
+ <body>
+
+	<input type="button" value="开始游戏" id="btnStart"/>
+	<div id="box"></div>
+
+
+<script>
+
+var oBtn = document.getElementById("btnStart");
+var oBox=document.getElementById("box")
+function color()
+{
+	var r = parseInt(Math.random() * 256);
+	var g = parseInt(Math.random() * 256);
+	var b = parseInt(Math.random() * 256);
+
+	var c = "rgb(" + r + "," + g + "," + b + ")"
+
+	return c;
+}
+function box(rgb) {
+	var oDiv = document.createElement("div")
+
+	oDiv.style.width = "100px";
+	oDiv.style.height = "100px";
+
+
+	oDiv.style.background = rgb;  
+
+	oBox.appendChild(oDiv)
+}
+
+oBtn.onclick=function(){
+	var c1=color();
+	do{
+		var c2=color();
+	}while(c2==c1)
+		
+	var cIndex=parseInt(Math.random()*4);
+	for(i=0;i<4;i++){
+		if(i==cIndex){
+			box(c1);
+			continue;
+		}
+		box(c2);
+	}
+}
+</script>  
+
+ </body>
+</html>

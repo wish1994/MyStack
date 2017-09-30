@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="create" value="增加">
+    <div id="box"></div>
+</body>
+<script>
+    var create=document.getElementById("create")
+    var box=document.getElementById("box");
+    create.onclick=function(){
+        var oimg=document.createElement("img");
+        oimg.src="../20170928_day11/images/images/songhuiqiao.jpg"
+        document.body.appendChild(oimg);        
+    }
+</script>
+</html>

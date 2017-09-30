@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文字背景</title>
+    <style>
+div{
+	margin: auto;
+	width: 400px;
+	height: 300px;
+	line-height: 300px;
+	text-align: center;
+	font-size: 180px;
+	font-weight: bold;
+	color: #ff0000;
+	color: transparent;
+	background: url(../images/images/1.jpg) no-repeat center center;
+	background-size: cover;
+	-webkit-background-clip: text;
+	/* 谷歌浏览器 */
+}
+/*
+{
+    background-clip: border-box;  // 背景延伸到边框外沿（但是在边框之下）
+    background-clip: padding-box; // 边框下面没有背景，即背景延伸到内边距外沿。
+    background-clip: content-box; // 背景裁剪到内容区 (content-box) 外沿。
+}
+*/
+
+
+
+</style>
+</head>
+<body>
+        <div>Clip</div>
+</body>
+</html>
