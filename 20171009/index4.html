@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+#container{
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	top: 100px;
+	left: 500px;
+}
+.pic{
+	position: absolute;
+	opacity: 0;
+}
+.pic1{
+	opacity: 1;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="pic pic1"><img src="1.jpg" alt=""></div>
+        <div class="pic pic2"><img src="2.jpg" alt=""></div>
+        <div class="pic pic3"><img src="3.jpg" alt=""></div>
+        <div class="pic pic4"><img src="4.jpg" alt=""></div>
+    </div>
+</body>
+<script>
+    window.onload=function(){
+
+        function animate1(obj){
+            var objStyle=getComputedStyle(obj);           
+            var a=1;
+            obj.timer=setInterval(function(){
+                        obj.style.opacity=a;
+                        if(a<=0){
+                            a=0;
+                            clearInterval(obj.timer);
+                        }else{
+                            a-=0.1;
+                        }
+                    },100)
+        }
+        function animate2(obj1){
+            var objStyle=getComputedStyle(obj1);
+            var a=0;
+            obj1.timer=setInterval(function(){
+                        obj1.style.opacity=a;
+                        if(a>=1){
+                            a=1;
+                            clearInterval(obj1.timer)
+                        }else{
+                            a+=0.1;
+
+                        }
+                    },100)
+        }
+    
+        var pic=document.getElementsByClassName("pic");
+        var i=0;
+        setInterval(function(){
+            var oStyle0=getComputedStyle(pic[0]);
+            var oStyle1=getComputedStyle(pic[1]);
+            var oStyle2=getComputedStyle(pic[2]);
+            var oStyle3=getComputedStyle(pic[3]);
+            console.log(oStyle0)
+            if(oStyle0.opacity==1){
+                animate1(pic[0]);
+                animate2(pic[1]);
+            }else if(oStyle1.opacity==1){
+                animate1(pic[1]);
+                animate2(pic[2]);
+            }else if(oStyle2.opacity==1){
+                animate1(pic[2]);
+                animate2(pic[3]);
+            }else if(oStyle3.opacity==1){
+                animate1(pic[3]);
+                animate2(pic[0]);
+            }
+    
+        },1000)
+    }
+</script>
+</html>

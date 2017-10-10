@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+.ball{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #ff0000;
+	margin-top: 20px;
+	position: relative;
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+</body>
+<script src="../tween.js"></script>
+<script>
+    var ball=document.getElementsByClassName("ball");
+    var n0=1;
+    var n1=1;
+    var n2=1;
+    var n3=1;
+    var n4=1;
+    
+    var timer0=setInterval(function(){
+        ball[0].style.left=Tween.Linear(n0, 0, 800, 100)+"px";
+        if(n0==100)
+        clearInterval(timer0);
+        n0++;
+    },50)
+    var timer1=setInterval(function(){
+        ball[1].style.left=Tween.QuadEaseIn(n1, 0, 800, 100)+"px";
+        if(n1==100)
+        clearInterval(timer1);
+        n1++;
+    },50)
+    var timer2=setInterval(function(){
+        ball[2].style.left=Tween. QuadEaseOut(n2, 0, 800, 100)+"px";
+        if(n2==100)
+        clearInterval(timer2);
+        n2++;
+    },50)
+    var timer3=setInterval(function(){
+        ball[3].style.left=Tween.QuadEaseInOut(n3, 0, 800, 100)+"px";
+        if(n3==100)
+        clearInterval(timer3);
+        n3++;
+    },50)
+    var timer4=setInterval(function(){
+        ball[4].style.left=Tween.CubicEaseIn(n4, 0, 800, 100)+"px";
+        if(n4==100)
+        clearInterval(timer4);
+        n4++;
+    },50)
+</script>
+</html>

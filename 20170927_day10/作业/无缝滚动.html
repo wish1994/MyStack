@@ -8,31 +8,40 @@
 </head>
 <body>
         <style type="text/css">
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            .rolling{
-                width: 800px;
-                height: 130px;
-                border: 10px solid #ccc;
-                margin: 100px auto;
-                position: relative;
-                overflow: hidden;
-            }
-            .rolling .m_unit{
-                width: 5000px;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-            .rolling ul{
-                list-style: none;
-            }
-            .rolling ul li{
-                float: left;
-                margin-right: 10px;
-            }
+*{
+	margin: 0;
+	padding: 0;
+}
+.rolling{
+	width: 800px;
+	height: 130px;
+	border: 10px solid #cccccc;
+	margin: 100px auto;
+	position: relative;
+	overflow: hidden;
+}
+.rolling .m_unit{
+	width: 5000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.rolling ul{
+	list-style: none;
+	position: absolute;
+}
+.rolling ul li{
+	float: left;
+	margin-right: 10px;
+}
+
+
+
+
+
+
+
+
         </style>
     
         <div class="rolling" id="rolling">
@@ -53,6 +62,7 @@
             </div>
         </div>
 </body>
+<script src="../../20171009/animate-2.0.1.js"></script>
 <script>
     window.onload=function(){
         var unit=document.getElementById("m_unit");
@@ -62,23 +72,33 @@
         for(i=0;i<ali.length;i++){
             ulwidth+=(ali[i].offsetWidth+10);
         }
-        console.log(ulwidth);
         aul[0].innerHTML+=aul[0].innerHTML;
-        var a=0;
-        function move(){
-            a--;
-            if(a<-ulwidth){
-                a=0;
-            }
-            unit.style.left=a+"px";
-        }
-        var timer=setInterval(move,10);
-        unit.onmouseover=function(){
-            clearInterval(timer);
-        }
-        unit.onmouseout=function(){
-            timer=setInterval(move,10)
-        }
+        // var a=0;
+        // function move(){
+        //     a--;
+        //     if(a<-ulwidth){
+        //         a=0;
+        //     }
+        //     unit.style.left=a+"px";
+        // }
+        // var timer=setInterval(move,10);
+        // unit.onmouseover=function(){
+        //     clearInterval(timer);
+        // }
+        // unit.onmouseout=function(){
+        //     timer=setInterval(move,10)
+        // }
+        var i=1;
+        setInterval(function(){
+            animate(aul[0],{left:-(parseInt(ali[i].offsetWidth)+10)*i},1000,function(){
+                i++;
+                if(i==10){
+                    oUl.style.left="0px";
+                    i=1;
+                }
+            })
+
+        },2000)
 
     }
 </script>
