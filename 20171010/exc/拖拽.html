@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <img id="bird" src="bird.png" alt="" style="position:absolute">
+    <img id="bird" src="../bird.png" alt="" style="position:absolute">
 </body>
 <script>
     var bird=document.getElementById("bird");
@@ -16,11 +16,9 @@
         var x=e1.clientX-bird.offsetLeft;
         var y=e1.clientY-bird.offsetTop;
         window.onmousemove=function(e2){
-            var x1=e2.clientX-x;
-            var y1=e2.clientY-y;
-            bird.style.left=x1+"px";
-            bird.style.top=y1+"px";
-        }       
+            bird.style.left=e2.clientX-x+"px";
+            bird.style.top=e2.clientY-y+"px";
+        }
     }
     bird.onmouseup=function(){
         window.onmousemove=null;

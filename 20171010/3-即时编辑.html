@@ -24,31 +24,24 @@
   </table>
 
   <script>
-/*
-效果： 点击td，出现文本框。可以不考虑保存的问题
-思路：
-	1. 给所有td绑定onclick事件
-	2. 事件处理函数中：
-		(1) 创建1个input
-		(2) 添加input到当前td中
-		(3) 获取td中的内容，添加到input的value 中
-
-10分钟，写完发群里，11:10对对
-*/
-var td=document.getElementsByTagName("td");
-for(i=0;i<td.length;i++){
-  td[i].onclick=function(){
-    var str=this.innerHTML;
-    this.innerHTML="";
-    var oinput=document.createElement("input");
-    oinput.value=str;
-    this.appendChild(oinput);
-    oinput.onclick=function(e){
-      e.stopPropagation();
+    var td=document.getElementsByTagName("td");
+    for(i=0;i<td.length;i++){
+      td[i].onclick=function(){
+        var str=this.innerHTML;
+        this.innerHTML="";
+        var oinput=document.createElement("input");
+        oinput.value=str;
+        this.appendChild(oinput);
+        var otd=this;
+        oinput.onclick=function(e){
+          e.stopPropagation();
+        }
+        oinput.onblur=function(){
+          otd.innerHTML=this.value;
+        }
+        
+      }
     }
-    
-  }
-}
 
   </script>
 
