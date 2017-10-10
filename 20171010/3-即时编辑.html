@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+    tr,td{
+      padding: 0;
+    }
+  
+  </style>
+ </head>
+ <body>
+  <table border=1>
+  <tr>
+	<td>你好</td>
+	<td>祝你幸福</td>
+	<td>再见</td>
+  </tr>
+  </table>
+
+  <script>
+/*
+效果： 点击td，出现文本框。可以不考虑保存的问题
+思路：
+	1. 给所有td绑定onclick事件
+	2. 事件处理函数中：
+		(1) 创建1个input
+		(2) 添加input到当前td中
+		(3) 获取td中的内容，添加到input的value 中
+
+10分钟，写完发群里，11:10对对
+*/
+var td=document.getElementsByTagName("td");
+for(i=0;i<td.length;i++){
+  td[i].onclick=function(){
+    var str=this.innerHTML;
+    this.innerHTML="";
+    var oinput=document.createElement("input");
+    oinput.value=str;
+    this.appendChild(oinput);
+    oinput.onclick=function(e){
+      e.stopPropagation();
+    }
+    
+  }
+}
+
+  </script>
+
+ </body>
+</html>
