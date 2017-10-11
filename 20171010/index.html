@@ -10,20 +10,53 @@
     <img id="bird" src="bird.png" alt="" style="position:absolute">
 </body>
 <script>
-    var bird=document.getElementById("bird");
-    bird.onmousedown=function(e1){
-        e1.preventDefault();
-        var x=e1.clientX-bird.offsetLeft;
-        var y=e1.clientY-bird.offsetTop;
-        window.onmousemove=function(e2){
-            var x1=e2.clientX-x;
-            var y1=e2.clientY-y;
-            bird.style.left=x1+"px";
-            bird.style.top=y1+"px";
-        }       
-    }
-    bird.onmouseup=function(){
-        window.onmousemove=null;
-    }
+// 构造函数
+function Box()
+{
+	// 属性
+	this.ele = document.getElementById("bird");
+
+	var self = this;
+	//  元素按下的时候开始
+	this.ele.onmousedown = function(e) {
+		// 阻止默认行为
+		e.preventDefault();
+
+		// 在图片中点击的 左边距离
+		//    保存在拖拽物体中
+		self.detaX = e.clientX - self.ele.offsetLeft; 
+		self.detaY = e.clientY - self.ele.offsetTop; 
+
+		self.start();
+
+		document.onmouseup = function() {
+			self.stop();
+		}
+	}
+
+
+	// 方法
+	//    开始
+	this.start = function() {
+		document.onmousemove = function(e) {
+			var x = e.clientX - self.detaX;
+			var y = e.clientY - self.detaY;
+
+			self.move(x, y)
+		}
+	}
+
+	//    移动
+	this.move = function(x, y) {
+		self.ele.style.left = x + "px";
+		self.ele.style.top = y + "px";
+	}
+
+	//    停止
+	this.stop = function() {
+		document.onmousemove = null;
+	}
+}
+Box();
 </script>
 </html>

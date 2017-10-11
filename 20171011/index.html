@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function person(){
+    //     this.weight=70;
+    //     this.play=function(){
+    //         console.log("玩游戏")
+    //     }
+    // }
+    // var jobs=new person();
+    // var jack=new person();
+    // console.log(jobs.weight);
+    // jack.play();
+    function cat(c){
+        this.fur=c;
+        this.eat=function(){
+            console.log("吃东西")
+        }
+        this.sound=function(){
+            console.log("miaow")
+        }
+    }
+    var cat1=new cat("黄色");
+    console.log(cat1.fur);
+    cat1.eat();
+    cat1.sound();
+</script>
+</html>

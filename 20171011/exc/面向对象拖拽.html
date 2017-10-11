@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+
+        }
+        img{
+            width: 100px;
+            height:100px;
+            position: absolute;
+        }
+    
+    </style>
+</head>
+<body>
+    <img id="bird" src="../../20171010/bird.png" alt="">
+</body>
+<script>
+    function Boxmove(boxId){
+        this.ele=document.getElementById(boxId);
+        var self=this;
+        this.ele.onmousedown=function(e){
+            e.preventDefault();
+            self.detaX=e.clentX-self.ele.offsetLeft;
+            self.detaY=e.clentY-self.ele.offsetTop;
+            self.start();
+            self.onmouseup=function(){
+                document.onmousemove=null;
+            }            
+        }
+        this.start=function(){
+            document.onmousemove=function(e1){
+                var x=e1.clientX-self.detaX;
+                var y=e1.clientY-self.detaY;
+                self.move();
+            }
+            
+            
+        }
+        this.move=function(x,y){
+            self.ele.style.left=x+"px";
+            self.ele.style.top=y+"px";
+        }
+    }
+    Boxmove("bird")
+</script>
+</html>

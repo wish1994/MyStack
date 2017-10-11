@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+            position:absolute;
+        }
+    
+    </style>
+</head>
+<body>
+    <img id="bird" src="../20171010/bird.png" alt="">
+</body>
+<script>
+    var bird=document.getElementById("bird");
+    bird.onmousedown=function(e){
+        e.preventDefault();
+        var detaX=e.clientX-this.offsetLeft;
+        var detaY=e.clientY-this.offsetTop;
+        window.onmousemove=function(e1){
+            var x=e1.clientX-detaX;
+            var y=e1.clientY-detaY;
+            bird.style.left=x+"px";
+            bird.style.top=y+"px";
+        }
+       window.onmouseup=null;
+    }
+
+</script>
+</html>
