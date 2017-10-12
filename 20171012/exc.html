@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+html , body{
+	margin: 0;
+	padding: 0;
+}
+div{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+}
+#box1{
+	background: #ff0000;
+	z-index: 2;
+}
+#box2{
+	background: #0000ff;
+	z-index: 3;
+}
+#box3{
+	background: #00ff00;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>  
+</body>
+<script>
+    function PuBox(BoxId){
+        if (BoxId == undefined) {
+            return;
+        }
+        this.ele=document.getElementById(BoxId);
+        var self=this;
+        this.ele.onmousedown=function(e){
+            e.preventDefault();
+            self.detaX=e.clientX-self.ele.offsetLeft;
+            self.detaY=e.clientY-self.ele.offsetTop;
+            self.start();
+            document.onmouseup=function(){
+                self.end() ;           
+
+            }
+
+        }
+    }
+        PuBox.prototype.start=function(){
+            var self=this;
+            document.onmousemove=function(e1){
+                var x=e1.clientX-self.detaX;
+                var y=e1.clientY-self.detaY;
+                self.move(x,y);
+            }        
+        }
+        PuBox.prototype.move=function(x,y){
+            this.ele.style.left=x+"px";
+            this.ele.style.top=y+"px";
+        }
+        PuBox.prototype.end=function(){
+
+            document.onmousemove=null;
+        }
+
+    new PuBox("box1");
+
+    function TextBox(BoxId){
+        PuBox.call(this,BoxId);
+    }
+    TextBox.prototype=new PuBox();
+    TextBox.prototype.move=function(x,y){
+        PuBox.prototype.move.call(this,x,y);
+        this.ele.innerHTML=x+"px,"+y+"px";
+    }
+    new TextBox("box2");
+   
+    
+    function ConBox(BoxId){
+        PuBox.call(this,BoxId);  
+   
+    }
+
+    ConBox.prototype=new PuBox();
+    ConBox.prototype.move=function(x,y){      
+        if(x<0){
+            x=0;
+        }else if(x>1260){
+            x=1260;           
+        }
+        if(y<0){
+            y=0;          
+        }else if(y>575){
+            y=575;                      
+        }       
+       this.ele.style.left=x+"px";
+       this.ele.style.top=y+"px";
+        
+    }
+    new ConBox("box3");
+
+</script>
+</html>

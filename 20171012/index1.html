@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Cat(){
+        this.leg="4条腿";
+        this.bark=function(){
+            console.log("miaow")
+        }
+    }
+    function JiaCat(){
+        this.eye="一对蓝眼睛";
+        this.joke=function(){
+            console.log("讲笑话")
+        }
+    }
+    JiaCat.prototype=new Cat();
+    
+    function TomCat(){
+
+        this.fur="蓝色毛发";
+        this.joke=function(){
+            console.log("讲笑话")
+        }
+        this.catch=function(){
+            console.log("抓老鼠")
+        }
+    }
+    TomCat.prototype=new Cat();
+    console.log(new TomCat().leg);
+</script>
+</html>

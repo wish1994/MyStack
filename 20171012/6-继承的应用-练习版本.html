@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+
+		#box2 {
+			background: green;
+		}
+
+		#box3 {
+			background: blue;
+		}
+	</style>
+  
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+
+	<script src="DragBox.js"></script>
+	<script>
+
+		function DragBoxText(BoxId){
+			DragBox.call(this,BoxId)
+		}
+		DragBoxText.prototype=new DragBox();
+		DragBoxText.prototype.move=function(x,y){
+			// this.ele.style.left = x + "px";
+			// this.ele.style.top = y + "px";	
+			DragBox.prototype.move.call(this,x,y);
+			this.ele.innerHTML=x+","+y;
+		}
+
+
+		new DragBoxText("box1");
+		new DragBoxText("box2");
+		new DragBoxText("box3");
+	</script>
+
+ </body>
+</html>
