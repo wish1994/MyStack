@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>原生JS实现表格拖拽排序效果 - 魔客吧（www.moke8.com）</title>
+<link href="css/sucaijiayuan.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="chenkbox">
+<table id="tableSort">
+    <tr>
+          <th onclick="sortTable('tableSort',0)" title="点击排序"> 序列 </th>
+          <th onclick="sortTable('tableSort',1)" title="点击排序"> 名称 </th>
+          <th onclick="sortTable('tableSort',2)" title="点击排序"> 数量 </th>
+          <th onclick="sortTable('tableSort',3)" title="点击排序"> 单价(Q点) </th>
+          <th onclick="sortTable('tableSort',4)" title="点击排序"> 总计(Q点) </th>
+        </tr>
+    <tr>
+          <td>1</td>
+          <td>农场话费A</td>
+          <td>2</td>
+          <td>50</td>
+          <td>100</td>
+        </tr>
+    <tr>
+          <td>2</td>
+          <td>飞车道具C</td>
+          <td>1</td>
+          <td>80</td>
+          <td>80</td>
+        </tr>
+    <tr>
+          <td>3</td>
+          <td>空间K</td>
+          <td>1</td>
+          <td>120</td>
+          <td>120</td>
+        </tr>
+    <tr>
+          <td>4</td>
+          <td>农场狗粮C</td>
+          <td>4</td>
+          <td>60</td>
+          <td>240</td>
+        </tr>
+    <tr>
+          <td>5</td>
+          <td>音速种子</td>
+          <td>2</td>
+          <td>110</td>
+          <td>220</td>
+        </tr>
+    <tr>
+          <td>6</td>
+          <td>农场化肥D</td>
+          <td>5</td>
+          <td>60</td>
+          <td>300</td>
+        </tr>
+    <tr>
+          <td>7</td>
+          <td>AVA装扮C</td>
+          <td>1</td>
+          <td>300</td>
+          <td>300</td>
+        </tr>
+    <tr>
+          <td>8</td>
+          <td>三国道具C</td>
+          <td>15</td>
+          <td>60</td>
+          <td>900</td>
+        </tr>
+    <tr>
+          <td>9</td>
+          <td>DNF道具B</td>
+          <td>4</td>
+          <td>300</td>
+          <td>1200</td>
+        </tr>
+    <tr>
+          <td>10</td>
+          <td>农场化肥H</td>
+          <td>6</td>
+          <td>80</td>
+          <td>120</td>
+        </tr>
+    <tr>
+          <td>11</td>
+          <td>农场化肥B</td>
+          <td>1</td>
+          <td>80</td>
+          <td>80</td>
+        </tr>
+    <tr>
+          <td>12</td>
+          <td>Q宠元宝</td>
+          <td>100</td>
+          <td>1</td>
+          <td>100</td>
+        </tr>
+    <tr>
+          <td>13</td>
+          <td>三国道具K</td>
+          <td>9</td>
+          <td>20</td>
+          <td>180</td>
+        </tr>
+  </table>
+  <div id="box"></div>
+</div>
+<script src="js/sucaijiayuan.js"></script>
+</body>
+</html>

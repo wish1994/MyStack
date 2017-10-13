@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+html , body{
+	margin: 0;
+	padding: 0;
+}
+table{
+	border-collapse: collapse;
+	border: 2px solid #000000;
+	margin: auto;
+}
+td{
+	width: 15px;
+	height: 15px;
+}
+.food{
+	background: #ff0000;
+}
+
+
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    //游戏引擎
+    var gGameBox = {       
+        rows: 20,        
+        cols: 20, 
+        start: function() {
+            var oTable = document.createElement("table");
+            gGameBox.Alltd=[];
+        
+            for (var i = 0; i < gGameBox.rows; i++)
+            {
+                var oTr = document.createElement("tr"); 
+                var arr=[];
+    
+                for (var j = 0; j < gGameBox.cols; j++) {
+                    var oTd = document.createElement("td"); 
+    
+                    oTr.appendChild(oTd);
+                    arr.push(oTd);
+                }
+    
+                oTable.appendChild(oTr);
+
+                gGameBox.Alltd.push(arr);
+            }
+    
+            document.body.appendChild(oTable);
+            this.food=new Food();
+        }
+    };
+    
+    
+    //food
+    function Food(){
+        this.x=0;
+        this.y=0;
+        this.change();
+    }
+    Food.prototype.change=function(){
+        this.x=parseInt(Math.random()*gGameBox.cols);
+        this.y=parseInt(Math.random()*gGameBox.rows);
+        gGameBox.Alltd[this.x][this.y].className="food";
+    }
+    
+    gGameBox.start();
+    
+</script>
+</html>

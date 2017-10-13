@@ -1,0 +1,47 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "microsoft yahei";
+	background-color: #eee;
+}
+#chenkbox {
+	margin: 100px auto;
+	width: 800px;
+	position: relative;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+	background-color: #fff;
+}
+th {
+	background: #ebf3f0;
+	font-size: 13px;
+	color: #000002;
+	height: 25px;
+	cursor: pointer;
+}
+th, td {
+	text-align: center;
+	border: 1px solid #dcdbdb;
+	padding: 5px 10px;
+}
+#box {
+	position: absolute;
+	display: none;
+	background: #fff;
+	text-align: center;
+	top: 0;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.8);
+	color: #fff;
+	height: 100%;
+	cursor: move;
+}
+#box p {
+	line-height: 2;
+}

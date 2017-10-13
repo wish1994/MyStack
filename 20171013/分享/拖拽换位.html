@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<body> 
+<style type="text/css"> 
+div.box{
+	position: relative;
+	padding: 5px;
+	background-color: #000000;
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+} 
+div.box div.item{
+	float: left;
+	width: 90px;
+	height: 90px;
+	background-color: #cccccc;
+	margin: 5px;
+	position: relative;
+	cursor: pointer;
+} 
+div.mask{
+	width: 90px;
+	height: 90px;
+	background-color: #ff0000;
+	opacity: 0.8;
+	position: absolute;
+	visibility: hidden;
+	top: 20px;
+	left: 20px;
+	z-index: 10;
+} 
+
+</style> 
+
+
+<script type="text/javascript"> 
+var drag = { 
+    target : null, 
+    ox : 0, 
+    oy : 0 
+}; //先申明一个对象，后面代表一个个方块。
+var box = document.createElement("div"); 
+box.className = "box"; //创建容器
+var mask = document.createElement("div"); 
+mask.className = "mask"; //创建红色方块，初始状态为不可见。
+box.appendChild(mask);//将红色方块放进容器里面。
+document.body.appendChild(box); //将容器放到页面上。
+
+for(var i = 0; i < 9; i ++){ 
+    var item = document.createElement("div"); //创建9个灰色方块，作为拖拽对象。
+    item.className = "item"; 
+    item.appendChild(document.createTextNode(i + 1)); //在每个方块里面添加数字，作为标记。
+    item.onmousedown = function(e){ 
+        var o = e.target;
+        //console.log(e.target) ;
+        drag.target = o; //让drag对象里面target属性等于点击的这个方块。
+        mask.style["top"] = o.offsetTop + "px"; 
+        mask.style["left"] = o.offsetLeft + "px"; 
+        mask.style["visibility"] = "visible"; //让隐形的红色方块显示在当前灰色方块上面。
+        drag.ox = e.clientX - mask.offsetLeft; 
+        drag.oy = e.clientY - mask.offsetTop;//获取鼠标点击位置和目标方块offsetLeft及offsetTop的差值。
+    } 
+    box.appendChild(item); //将9个方块添加到容器里面。
+} 
+
+//交换位置
+function getItem(x,y){ 
+    x = x - box.offsetLeft; //输入的x,y是鼠标松开的位置，然后减去大容器的offsetLeft和offsetTop，得到鼠标相对于容器的位置。
+    y = y - box.offsetTop; 
+    var o = box.childNodes[(3 - parseInt((box.offsetWidth - x)/100) + (2 - parseInt((box.offsetHeight - y)/100)) * 3)];
+    //childNodes 返回节点的子节点集合
+    var on = o.nextSibling;
+    //返回指定节点之后紧跟的节点,这边的on是指目标方块后面的方块的集合。
+    box.insertBefore(drag.target,on); 
+} 
+
+document.onmousemove = function(e1){ 
+    if(drag.target != null && drag.target.nodeType == 1){ //nodeType返回节点的类型，这里等于1代表元素。
+        mask.style["left"] = e1.clientX - drag.ox + "px"; 
+        mask.style["top"] = e1.clientY - drag.oy + "px"; //拖拽时不停改变红色方块的位置。
+    } 
+} 
+
+box.onmouseup = function(e2){ 
+    if(drag.target != null && drag.target.nodeType == 1){  
+        getItem(e2.clientX,e2.clientY); 
+        drag.target = null; 
+    } 
+} 
+
+document.onmouseup = function(){ 
+    drag.target = null; 
+    mask.style["visibility"] = "hidden"; //如果是在容器外面松开鼠标，就不执行任何操作。
+} 
+</script> 
+</body> 
+</html> 
+
