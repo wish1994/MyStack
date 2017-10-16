@@ -22,6 +22,9 @@ td{
 .food{
 	background: #ff0000;
 }
+.snake{
+    background:green;
+}
 
 
     </style>
@@ -57,6 +60,8 @@ td{
     
             document.body.appendChild(oTable);
             this.food=new Food();
+            this.snake=new Snake();
+            this.snake.fresh();
         }
     };
     
@@ -71,6 +76,36 @@ td{
         this.x=parseInt(Math.random()*gGameBox.cols);
         this.y=parseInt(Math.random()*gGameBox.rows);
         gGameBox.Alltd[this.x][this.y].className="food";
+    }
+
+    //蛇
+    function Snake(){
+        this.arr=[
+            {x: 5, y: 1},
+            {x: 4, y: 1},
+            {x: 3, y: 1},
+            {x: 2, y: 1},
+            {x: 1, y: 1}
+        ];
+        this.direct="down";
+
+    }
+    Snake.prototype.fresh=function(){
+        for(i=0;i<this.arr.length;i++){
+            gGameBox.Alltd[this.arr[i].y][this.arr[i].x].className="snake";
+        }
+
+    }
+    Snake.prototype.move=function(){
+        var x=this.arr[0].x;
+        var y=this.arr[0].y;
+        if(this.direct="down"){
+            y++;
+        }else if(this.direct="right"){
+            x++;
+        }
+        this.arr.unshift({x:x,y:y});
+        this.arr.pop();
     }
     
     gGameBox.start();
