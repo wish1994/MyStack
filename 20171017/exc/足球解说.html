@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            border:1px solid rgb(255, 75, 75);
+            width: 300px;
+            margin-bottom: 5px;
+        }
+
+        .box div{
+            color:rgb(255, 75, 75);
+            font-size:18px;
+        }
+        #btn{
+            background: orangered;
+        }
+    
+    </style>
+    <div id="textbox"></div>
+    <button id="btn">加载下一条数据</button>
+    
+</body>
+<script>
+    var textbox=document.getElementById("textbox");
+    var btn=document.getElementById("btn");
+    var index=0;
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","http://localhost:8080/ajax/football",true);
+    xhr.send();
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+            var str=xhr.responseText;
+            var obj=JSON.parse(str);
+            var arr=obj.data;
+
+            btn.onclick=function(){
+                if(index<29){
+                    var oBox=document.createElement("div");
+                    oBox.className="box";
+                    var otitle=document.createElement("div");
+                    otitle.innerHTML=arr[index].name;
+                    var ocontent=document.createElement("p");
+                    ocontent.innerHTML=arr[index].content;
+                    textbox.appendChild(oBox);
+                    oBox.appendChild(otitle);
+                    oBox.appendChild(ocontent);
+                    index++;
+                }else{
+                    alert("数据已经加载完毕")
+                }
+            }
+            
+
+        }
+    }
+
+
+
+</script>
+</html>

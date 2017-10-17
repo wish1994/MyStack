@@ -26,6 +26,9 @@
         .food{
             background: #f00;
         }
+        .snake{
+            background:green;
+        }
     
     </style>
         
@@ -55,6 +58,11 @@
         start:function(){
             gamebox.init();
             gamebox.food=new Food();
+            gamebox.snake=new Snake();
+            gamebox.timer=setInterval(function(){
+                gamebox.snake.move();
+
+            },300)
 
         }
         
@@ -77,9 +85,38 @@
 
     //snake
     function Snake(){
+        this.arr=[
+            {x:5,y:1},
+            {x:4,y:1},
+            {x:3,y:1},
+            {x:2,y:1},
+            {x:1,y:1}
+        ];
+        this.direct="down";
+        this.show();
         
     }
-    
+    Snake.prototype.show=function(){
+        for(i=0;i<this.arr.length;i++){
+            gamebox.allTd[this.arr[i].y][this.arr[i].x].className="snake";
+        }
+    }  
+    Snake.prototype.move=function(){
+        var x=this.arr[0].x;
+        var y=this.arr[0].y;
+        if(this.direct="down"){
+            y++;
+        }else if(this.direct="right"){
+            x++;
+        }else if(this.direct="left"){
+            x--;
+        }else if(this.direct="up"){
+            y--;
+        }
+        this.arr.unshift({x:x,y:y});
+        this.arr.pop();       
+        this.show();
+    }
     
     gamebox.start();
 </script>

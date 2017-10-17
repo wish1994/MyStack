@@ -112,7 +112,13 @@ function close(){
 	text.value="";
 }
 quxiao.onclick=close;
-guanbi.onclick=close;
+guanbi.onclick=function(e){
+	e.stopPropagation();
+	close();
+}
+guanbi.onmousedown=function(e){
+	e.stopPropagation();
+}
 sure.onclick=function(){
 	var content=text.value;
 	var oli=document.createElement("li");
