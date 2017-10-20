@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+</body>
+<script src="ajax_1.0.js"></script>
+<script>
+    var obj={
+        async:true,
+        data:"pageNo=1",
+        url:"http://localhost:8080/ajax/football",
+        sucess:function(str){
+            console.log(str);
+        },
+        fail:function(){
+            console.log("失败了")
+        },        
+    };
+    ajax.get(obj);
+</script>
+</html>

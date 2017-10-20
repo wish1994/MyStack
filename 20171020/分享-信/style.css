@@ -1,0 +1,48 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/* 头部样式 */
+header{
+	background-color: rgba(33, 33, 33, 0.9);
+	color: #ffffff;
+	display: block;
+	height: 50px;
+	position: relative;
+}
+/*标题样式*/
+header h2{
+	font-size: 22px;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+/*背景图*/
+body{
+	background: url("bg.jpg") no-repeat;
+	background-size: cover;
+}
+/*设置两个墨水动态图，固定在页面左下角*/
+#inkwell1{
+	bottom: 60px;
+	left: 140px;
+	position: fixed;
+}
+#inkwell2{
+	bottom: 60px;
+	left: 140px;
+	position: fixed;
+	visibility: hidden;
+}
+/*页面有两层文字的*/
+#letter{
+	font-family: Comic Sans MS;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 50px auto;
+	position: relative;
+	width: 75%;/*下面一层文字样式，所有看到的文字都是这一层*/
+}
+#letter_src{
+	display: none;/*上面一层隐藏的文字*/
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="jsonp"></div>
+    
+</body>
+<!-- <script src="../20171018/ajax_1.0.js"></script> -->
+<!-- <script src="http://localhost/tq.js"></script> -->
+<script>
+    function c(str){
+        document.getElementById("box").innerHTML=str;
+    }
+    function fresh(){
+        document.getElementById("jsonp").innerHTML="";      
+        var oScript=document.createElement("script");
+        jsonp.appendChild(oScript);
+        oScript.src="http://localhost/tq.js";
+    }
+    setInterval(fresh,1000)
+</script>
+
+</html>

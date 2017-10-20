@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		
+		<div id="room">
+			<ul id="box">
+			</ul>
+			
+			<textarea id="msg"></textarea>
+			
+			<div>
+				<button id="btn"> 发送 </button>
+				<div class="clear"></div>
+			</div>
+		</div>		
+	</body>
+	<script src="../20171018/ajax_1.0.js"></script>
+	<script>
+		var btn=document.getElementById("btn");
+		var text=document.getElementById("msg");
+		var box=document.getElementById("box");
+		var user=prompt("好汉，请留下大名")
+		btn.onclick=function(){
+			var obj={
+				url:"http://localhost:8080/ajax/chat",
+				data:{
+					type:"send",
+					sender:user,
+					msg:text.value
+				},
+				sucess:function(str){
+					console.log(str);
+				}
+			}
+			ajax.get(obj);
+			jieshou();
+			text.value="";
+		}
+		function jieshou(){
+			var obj1={
+				url:"http://localhost:8080/ajax/chat",
+				data:{
+					type:"query"
+				},
+				sucess:function(str){
+					box.innerHTML="";
+					var obj2=JSON.parse(str);
+					for(i=0;i<obj2.length;i++){
+						var oLi=document.createElement("li");
+						oLi.innerHTML="<span>["+obj2[i].name+"]</span>"+obj2[i].content;
+						box.appendChild(oLi);
+						oLi.scrollIntoView();
+					}
+				} 
+			}
+			ajax.get(obj1);
+		}
+		setInterval(jieshou,1000);
+	
+	</script>
+</html>
