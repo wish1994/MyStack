@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #con{
+            
+            height:2000px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top:200px;
+            right: 0px;
+            background: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="con">
+
+        <div id="box">我是小广告</div>
+    </div>
+</body>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $(document).scroll(function(){
+        var iTop=$(document).scrollTop();
+        $("#box").stop(true).animate({top:iTop+200},200,"linear")
+    })
+</script>
+</html>
