@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $.get("http://localhost:8080/ajax/person",function(str){
+        console.log(str);
+    })
+    $.post("http://h6.duchengjiu.top/shop/api_user.php",{status:"check",username:"zhangsan"},function(str){
+        console.log(typeof str);
+    })
+</script>
+</html>
