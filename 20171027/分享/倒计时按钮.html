@@ -18,9 +18,9 @@
         var timer=setInterval(function(){
             secs--;
             if(secs>0){
-                $("#agree").get(0).value = "请认真阅读服务条款和声明 (" + secs +")";
+                $("#agree").val("请认真阅读服务条款和声明 (" + secs +")");
             }else if(secs<=0){
-                $("#agree").get(0).value =" 我同意 ";
+                $("#agree").val(" 我同意 ");
                 $("#agree").get(0).disabled=false;
                 clearInterval(timer);
             }
