@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        
+    </main>
+    <footer></footer>
+    
+</body>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $.get("http://localhost:8080/ajax/pbl",function(str){
+        var h="";
+        var obj=JSON.parse(str);
+        var data=obj.data;
+        for(i=0;i<data.length;i++){
+            h+="<figure>";
+            h+="<img src='";
+            h+=data[i].src;
+            h+="'/>";
+            h += "<figcaption>"
+            h += data[i].alt;
+            h += "</figcaption>";
+            h+="</figure>"
+        }
+        $("main").html(h);
+    })
+</script>
+</html>
