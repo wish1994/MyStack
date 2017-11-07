@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+div{
+	width: 258px;
+	height: 258px;
+	border: 1px solid #000000;
+	perspective: 500px;
+}
+div img{
+	position: absolute;
+	transform: rotateY(0deg);
+	transition: all 3s ease;
+	backface-visibility: hidden;
+}
+div img:nth-child(1){
+	transform: rotateY(-180deg);
+}
+div:hover img:nth-child(2){
+	transform: rotateY(180deg);
+}
+div:hover img:nth-child(1){
+	transform: rotateY(0deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/baby.png" alt="">
+        <img src="img/xiaoming.png" alt="">
+    </div>
+</body>
+</html>
