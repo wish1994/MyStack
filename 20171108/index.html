@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #stage{
+            width: 150px;
+            width: 150px;
+            margin: 100px;
+            perspective: 1000px;
+        }
+        #box{
+            transform: rotateX(0deg);
+            width: 150px;
+            height: 150px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 2s linear;
+
+        }
+        #box img{
+            top:0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+        }
+        #box img:nth-child(1){
+            transform:  translateZ(75px);
+        }
+        #box img:nth-child(2){
+            transform: rotateX(90deg) translateZ(75px);
+        }
+        #stage:hover #box{
+            transform: rotateX(-90deg);
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="stage">
+
+        <div id="box">
+            <img src="../20171107/img/baby.png" alt="">
+            <img src="../20171107/img/xiaoming.png" alt="">
+        </div>
+    </div>
+    
+</body>
+</html>
