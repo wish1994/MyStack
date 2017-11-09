@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.oDiv div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				display: none;
+				text-align: center;
+				line-height: 200px;
+			}
+			.active{
+				background: red;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="oDiv">
+			<input type="button" value="汽车" class="active"/>
+			<input type="button" value="旅游"/>
+			<input type="button" value="新闻"/>
+			<div style="display: block;">汽车汽车汽车汽车</div>
+			<div>旅游旅游旅游旅游</div>
+			<div>新闻新闻新闻新闻</div>
+		</div>		
+		
+		
+		
+		<script type="text/javascript">
+			
+			
+			function Tab(){
+				this.oDiv = document.getElementsByClassName("oDiv")[0];
+				this.aInput = this.oDiv.getElementsByTagName("input");
+				this.aDiv = this.oDiv.getElementsByTagName("div");
+				this.index=0;				
+			}
+			
+			Tab.prototype.init=function(){
+				var This = this;
+				for(var i=0;i<this.aInput.length;i++){
+					this.aInput[i].index = i;
+					this.aInput[i].onclick= function(){
+						clearInterval(This.timer);
+						This.t1(this);
+						This.index=i;
+						This.timer=setInterval(function(){					
+							This.index++;
+							This.index=(This.index)%This.aInput.length;
+							This.t1(This.aInput[This.index]);
+						},2000)					
+					};
+				}
+				This.timer=setInterval(function(){					
+					This.index++;
+					This.index=(This.index)%This.aInput.length;
+					This.t1(This.aInput[This.index]);
+					
+				},2000)
+				
+			}
+			Tab.prototype.t1 = function(obj){
+					for(var j=0;j<this.aInput.length;j++){
+						this.aInput[j].className='';
+						this.aDiv[j].style.display='none';
+					}
+					obj.className="active";
+					this.aDiv[obj.index].style.display="block";
+			}
+			
+			
+			var tab = new Tab();
+			
+			tab.init();
+			
+			
+		</script>
+	</body>
+</html>

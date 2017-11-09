@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #oDiv div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+            text-align: center;
+            line-height: 200px;
+
+        }
+        .active{
+            background: red;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="oDiv">
+        <input type="button" value="汽车" class="active">
+        <input type="button" value="旅游">
+        <input type="button" value="财经">
+        <div style="display:block">汽车汽车汽车汽车汽车汽车</div>
+        <div>旅游旅游旅游旅游旅游旅游</div>
+        <div>财经财经财经财经财经财经</div>
+    </div>
+    
+</body>
+<script>
+    var oDiv=document.getElementById("oDiv");
+    var aInput=oDiv.getElementsByTagName("input");
+    var aDiv=oDiv.getElementsByTagName("div");
+    for(i=0;i<aInput.length;i++){
+        aInput[i].index=i;
+        aInput[i].onclick=function(){
+            for(j=0;j<aInput.length;j++){
+                aInput[j].className="";
+                aDiv[j].style.display="none";
+            }
+            this.className="active";
+            aDiv[this.index].style.display="block";
+        }
+        
+
+    }
+</script>
+</html>

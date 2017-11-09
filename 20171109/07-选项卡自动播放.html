@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.oDiv div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				display: none;
+				text-align: center;
+				line-height: 200px;
+			}
+			.active{
+				background: red;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="oDiv" id="oDiv">
+			<input type="button" value="汽车" class="active"/>
+			<input type="button" value="旅游"/>
+			<input type="button" value="新闻"/>
+			<div style="display: block;">汽车汽车汽车汽车</div>
+			<div>旅游旅游旅游旅游</div>
+			<div>新闻新闻新闻新闻</div>
+		</div>
+		
+		<div class="oDiv" id="oDiv1">
+			<input type="button" value="游戏" class="active"/>
+			<input type="button" value="敲代码"/>
+			<input type="button" value="this"/>
+			<div style="display: block;">游戏游戏游戏游戏</div>
+			<div>敲代码敲代码敲代码敲代码</div>
+			<div>thisthisthisthis</div>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			
+			
+			function Tab(id){
+//				全局变量就是属性
+			 this.oDiv = document.getElementById(id);
+			 this.aInput = this.oDiv.getElementsByTagName("input");
+			 this.aDiv = this.oDiv.getElementsByTagName("div");
+			 
+			 //信号量
+			 this.idx=0;
+			}
+			
+			Tab.prototype.init=function(){
+				var This = this;
+				for(var i=0;i<this.aInput.length;i++){
+					this.aInput[i].index = i;
+					this.aInput[i].onclick= function(){
+						console.log(this); //当前input
+						This.t1(this);
+					};
+				}
+				
+			}
+			Tab.prototype.t1 = function(obj){
+				//排他 对应
+					for(var j=0;j<this.aInput.length;j++){
+						this.aInput[j].className='';
+						this.aDiv[j].style.display='none';
+					}
+					obj.className="active";
+					this.aDiv[obj.index].style.display="block";
+			}
+			Tab.prototype.autoPlay = function(num){
+				
+				//存储this指向
+				var self = this;
+				
+				setInterval(function(){
+					
+//					self.idx信号量
+
+					//循环的范围
+					if(self.idx == self.aInput.length-1){
+						self.idx = 0;
+					}else{
+						self.idx++;
+					}
+//					console.log(this);  //window
+					
+					//排他 对应
+					for(var j=0;j<self.aInput.length;j++){
+						self.aInput[j].className='';
+						self.aDiv[j].style.display='none';
+					}
+					self.aInput[self.idx].className="active";
+					self.aDiv[self.idx].style.display="block";
+					
+				},num);
+			}
+			
+			
+			
+			
+			var tab = new Tab("oDiv");
+			
+			tab.init();
+			tab.autoPlay("500");
+			
+			var tab1 = new Tab("oDiv1");
+			
+			tab1.init();
+			tab1.autoPlay("2000");
+			
+		</script>
+	</body>
+</html>
