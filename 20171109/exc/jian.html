@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 192px;
+            height: 192px;
+            position: absolute;
+            background-image: url(../img/jian.png);
+            background-repeat: no-repeat;
+            background-position: 0px -960px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    function Jian(Top,Left,Speed){
+        this.top=Top;
+        this.left=Left;
+        this.speed=Speed;
+        this.dom=null;
+        this.timer=null;
+        this.step=0;
+    }
+    Jian.prototype.init=function(){
+        this.dom=document.createElement("div");
+        document.body.appendChild(this.dom);
+        this.dom.style.left=this.left+"px";
+        this.dom.style.top=this.top+"px";
+        this.move();
+    }
+    Jian.prototype.move=function(){
+        var This=this;
+        this.timer=setInterval(function(){
+            This.step++;
+            This.left++;
+            if(This.step==5){
+                This.step=0;
+            }
+            This.dom.style.backgroundPosition=This.step*-192+"px -960px";
+            This.dom.style.left=This.left+"px";
+            if(This.left>1000){
+                This.die();
+            }
+        },this.speed)
+    }
+    Jian.prototype.die=function(){
+        clearInterval(this.timer);
+        console.log(this.dom)
+        document.body.removeChild(this.dom);
+    }
+
+    setInterval(function(){
+        var jian=new Jian(Math.random()*500,Math.random()*100,Math.random()*500);
+        jian.init();
+    },1000)
+</script>
+</html>

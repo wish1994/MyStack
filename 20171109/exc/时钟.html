@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 100px;
+            margin:300px auto;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+        }
+        div img{
+            width: 100px;
+            height: 100px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../img/0.png" alt="">
+        <img src="../img/0.png" alt="">:
+        <img src="../img/0.png" alt="">
+        <img src="../img/0.png" alt="">:
+        <img src="../img/0.png" alt="">
+        <img src="../img/0.png" alt="">
+    </div>
+</body>
+<script>
+    var aImg=document.getElementsByTagName("img");
+    function count(a){
+        if(a<10){
+            return "0"+a;
+        }else{
+            return a;
+        }
+    }
+    function zhong(){
+        var a=new Date();
+        var hour=count(a.getHours());
+        var minute=count(a.getMinutes());
+        var second=count(a.getSeconds());
+        var str=""+hour+minute+second;
+        for(i=0;i<str.length;i++){
+            aImg[i].src="../img/"+str.charAt(i)+".png"
+        }
+    }
+    zhong();
+
+    setInterval(function(){
+        zhong();
+    },1000)
+</script>
+</html>
