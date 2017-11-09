@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.rolling{
+				width: 800px;
+				height: 130px;
+				border: 10px solid #ccc;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.rolling .m_unit{
+				/*这是运动的单位,这个宽度足以致命,宽度给大点*/
+				width: 5000px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				animation: run 4s linear 0s infinite;
+			}
+			.rolling ul{
+				list-style: none;
+			}
+			
+			.rolling ul li{
+				float: left;
+				margin-right: 10px;
+			}
+			.rolling:hover .m_unit{
+				animation-play-state: paused;
+			}
+			
+			@-webkit-keyframes run{
+				from{
+					left: 0;
+				}
+				to{
+					left: -1050px;
+				}
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<!--div.rolling#rolling>div.m_unit#m_unit>ul>li*4>a>img[src=img/$.png]-->
+		<div class="rolling" id="rolling">
+			<div class="m_unit" id="m_unit">
+				<ul>
+					<li><a href=""><img src="img/0.png" alt="" /></a></li>
+					<li><a href=""><img src="img/1.png" alt="" /></a></li>
+					<li><a href=""><img src="img/2.png" alt="" /></a></li>
+					<li><a href=""><img src="img/3.png" alt="" /></a></li>
+					<li><a href=""><img src="img/4.png" alt="" /></a></li>
+					<li><a href=""><img src="img/0.png" alt="" /></a></li>
+					<li><a href=""><img src="img/1.png" alt="" /></a></li>
+					<li><a href=""><img src="img/2.png" alt="" /></a></li>
+					<li><a href=""><img src="img/3.png" alt="" /></a></li>
+					<li><a href=""><img src="img/4.png" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
