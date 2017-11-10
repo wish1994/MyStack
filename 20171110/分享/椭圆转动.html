@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="../../jquery-3.2.1.js">
+        </script>
+        <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+            <div class="dot"></div>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            //中心点横坐标
+            var dotLeft =500;
+            console.log($(".dot").width())
+            //中心点纵坐标
+            var dotTop =400;
+            //椭圆长边
+            a = 460;
+            //椭圆短边
+            b = 120;
+            //起始角度
+            var stard = 0;
+            //每一个BOX对应的角度;
+            var avd = 360/$(".container img").length;
+            //每一个BOX对应的弧度;
+            var ahd = avd*Math.PI/180;
+            //运动的速度
+            var speed = 2;
+            //图片的宽高
+            var wid = $(".container img").width();
+            var hei = $(".container img").height();
+            //总的TOP值
+            var totTop = dotTop+100;
+            //设置圆的中心点的位置
+            $(".dot").css({
+                "left":dotLeft,"top":dotTop}
+            );
+
+            //运动函数
+            var fun_animate = function(){
+                speed = speed<360?speed:2;
+                //运动的速度
+                speed+=2;
+                //运动距离，即运动的弧度数;
+                var ainhd = speed*Math.PI/180;
+                //按速度来定位DIV元素
+                $(".container img").each(function(index, element){
+                    var allpers = (Math.cos((ahd*index+ainhd))*b+dotTop)/totTop;
+                    var wpers = Math.max(0.1,allpers);
+                    var hpers = Math.max(0.1,allpers);
+                    $(this).css({
+                        "left":Math.sin((ahd*index+ainhd))*a+dotLeft,
+                        "top":Math.cos((ahd*index+ainhd))*b+dotTop,
+                        "z-index":Math.ceil(allpers*10),
+                        "width":wpers*wid,
+                        "height":hpers*hei,
+                        "opacity":allpers
+                    });
+                }
+                                        );
+            }
+            //定时调用运动函数
+            var setAnimate = setInterval(fun_animate,100);
+            }
+        )
+
+    
+    </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800">
+			请升级浏览器，当前不支持canvas！！！
+		</canvas>
+		
+		
+		
+		<script type="text/javascript">
+			//得到画布
+			var canvas = document.getElementById("canvas");
+			
+			//得到上下文
+			var ctx = canvas.getContext("2d");
+			
+//			var i = 160;
+			for(var i = 60; i < 600;i+=6){
+			ctx.beginPath();  
+			ctx.arc(i,i,i,0,2*Math.PI,true);
+//			ctx.arc(x轴,y轴,半径,起始角,结束角,正负时针方向);
+			ctx.stroke();
+			ctx.closePath();
+			}
+			
+		</script>
+	</body>
+</html>

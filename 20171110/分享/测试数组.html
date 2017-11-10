@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="../../jquery-3.2.1.js"></script>
+<script>
+    var obj=new Array();
+
+    //方法一：
+    // function isArray(obj){
+    //     return obj.__proto__ === Array.prototype;
+    // }
+
+    //方法二：
+    // function isArray(obj){
+    //     return Object.prototype.toString.call( obj ) === '[object Array]';
+    // }
+
+    //方法三：
+    function isArray(obj){
+        return $.isArray(obj)
+    }
+
+    //方法四：
+    // function isArray(obj){
+    //     return typeof obj==="Array";
+    // }
+
+    console.log(isArray(obj));
+    
+
+</script>
+</html>

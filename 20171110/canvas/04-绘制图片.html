@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800">
+			请升级浏览器，当前不支持canvas！！！
+		</canvas>
+		
+		
+		
+		<script type="text/javascript">
+			//得到画布
+			var canvas = document.getElementById("canvas");
+			
+			//得到上下文
+			var ctx = canvas.getContext("2d");
+			
+			var image = new Image();  //创建一个图片对象
+			image.src = "img/1.jpg";  //图片的src属性
+			
+			image.onload = function(){
+				ctx.drawImage(image,100,170,400,400,100,100,400,400);
+//				ctx.drawImage(图片,图片x坐标,图片y坐标,图片宽,图片高,画布x,画布y,宽,高)
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

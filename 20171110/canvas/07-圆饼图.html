@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800">
+			请升级浏览器，当前不支持canvas！！！
+		</canvas>
+		
+		
+		
+		<script type="text/javascript">
+			//得到画布
+			var canvas = document.getElementById("canvas");
+			
+			//得到上下文
+			var ctx = canvas.getContext("2d");
+			
+			ctx.fillStyle = "#9ACD32";
+			ctx.strokeStyle = "purple";
+			
+			ctx.beginPath();  //开始绘制路径
+			ctx.moveTo(100,100);  //把路径移动到画布的指定点，不创建线条
+			
+//			ctx.arc(100,100,80,-0.5*Math.PI,1.4*Math.PI,false);
+//			ctx.closePath();  //创建从当前点回到起始点的路径
+//			ctx.fill();
+//			ctx.stroke();
+
+			function draw(current){
+//				Math.PI/2  : 圆周率的一半
+				
+				ctx.arc(100,100,80,-0.5*Math.PI,current*(2*Math.PI)-Math.PI/2,false);
+				ctx.closePath();  
+				ctx.fill();
+//				ctx.stroke();
+			}
+//			draw(0.99);
+			
+			//信号量
+			var num = 0;
+			var timer = null;
+			
+			function loadCanvas(t){
+				//通过定时器实现动画效果，信号量累加 赋值
+				
+				timer = setInterval(function(){
+					
+					//范围
+					if(num > t){
+						draw(t);
+						clearInterval(timer);
+					}else{
+						 draw(num);
+						//信号量累加
+						num+=0.005;
+					}
+				},5);
+				
+			}
+			
+			loadCanvas(0.9);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border:1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas=document.getElementById("canvas");
+		var ctx=canvas.getContext("2d");
+		ctx.beginPath(); 
+		ctx.moveTo(100,100); 
+			
+		ctx.fillStyle="green";
+		function draw(current){
+			ctx.arc(100,100,80,-0.5*Math.PI,current*(2*Math.PI)-Math.PI/2,false);
+			ctx.closePath();  
+			ctx.fill();
+		}
+		var timer=null;
+		var step=0;
+		function bing(t){
+			timer=setInterval(function(){
+				if(step>t){
+					draw(t);
+					clearInterval(timer);
+				}else{
+					draw(step);
+					step+=0.05;					
+				}
+			},50)
+		}
+		bing(0.8)
+
+	</script>
+</html>
