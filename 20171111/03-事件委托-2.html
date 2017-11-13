@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="添加li"/>
+		
+		<ul id="oUl">
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+		
+		<script type="text/javascript">
+			
+			var btn = document.getElementById("btn");
+			var oUl = document.getElementById("oUl");
+			var aLi = oUl.getElementsByTagName("li");
+			//信号量
+			var num = 3;
+			//第一步
+//			//鼠标移入li变红，移出变白
+//			for(var i=0;i<aLi.length;i++){
+//				aLi[i].onmouseover = function(){
+//					this.style.background = 'red';
+//				}
+//				aLi[i].onmouseout = function(){
+//					this.style.background = '#fff';
+//				}
+//			}
+//			
+//			//添加新li元素节点，到ul内
+//			btn.onclick = function(){
+//				num++;
+//				var oLi = document.createElement("li");
+//				oLi.innerHTML = 111 * num;
+//				oUl.appendChild(oLi);
+//			};
+
+			//第二步
+//			function Hover(){
+//				//鼠标移入li变红，移出变白
+//				for(var i=0;i<aLi.length;i++){
+//					aLi[i].onmouseover = function(){
+//						this.style.background = 'red';
+//					}
+//					aLi[i].onmouseout = function(){
+//						this.style.background = '#fff';
+//					}
+//				}
+//			}
+//			Hover();
+//			//添加新li元素节点，到ul内
+//			btn.onclick = function(){
+//				num++;
+//				var oLi = document.createElement("li");
+//				oLi.innerHTML = 111 * num;
+//				oUl.appendChild(oLi);
+//				Hover();
+//			};
+			
+//			第三步 事件委托
+			oUl.onmouseover = function(ev){
+				var ev = ev || window.event;
+				
+				var target = ev.target || ev.srcElement;
+				
+				if(target.nodeName.toLowerCase() == 'li'){
+					target.style.background = "red";
+				}
+			}
+			
+			oUl.onmouseout = function(ev){
+				var ev = ev || window.event;
+				
+				var target = ev.target || ev.srcElement;
+				
+				if(target.nodeName.toLowerCase() == 'li'){
+					target.style.background = "#fff";
+				}
+			}
+			
+			//添加新li元素节点，到ul内
+			btn.onclick = function(){
+				num++;
+				var oLi = document.createElement("li");
+				oLi.innerHTML = 111 * num;
+				oUl.appendChild(oLi);
+			};
+			
+		</script>
+	</body>
+</html>

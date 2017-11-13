@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 500px;
+				height: 400px;
+				border: 1px solid #000;
+				margin: 100px;
+				position: relative;
+			}
+			p{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 60px;
+				height: 60px;
+				background: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p></p>
+		</div>
+		
+		<script type="text/javascript">
+			
+			//获取元素
+			var oDiv = document.getElementsByTagName("div")[0];
+			var oP = oDiv.getElementsByTagName("p")[0];
+			
+			//事件  1.鼠标按下 onmousedown   获取要拖拽的元素
+//				   2.鼠标移动  onmousemove   运动 赋值
+//					加上if判断  left < 0
+//				   3.鼠标抬起  onmouseup    释放拖拽的元素
+			
+			oP.onmousedown = function(event){
+				//event兼容处理
+				var event = event || window.event;
+				
+				//得到误差
+				var deltaX = event.clientX - oP.offsetLeft;
+				var deltaY = event.clientY - oP.offsetTop;
+				
+				oDiv.onmousemove = function(event){
+					//event兼容处理
+					var event = event || window.event;
+				
+					var x = event.clientX - deltaX;
+					var y = event.clientY - deltaY;
+					
+					//范围
+					if(x < 0) x = 0;
+					if(y < 0) y = 0;
+					if(x > oDiv.clientWidth - oP.clientWidth){
+						x = oDiv.clientWidth - oP.clientWidth;
+					}
+					if( y > oDiv.clientHeight - oP.clientHeight){
+						y = oDiv.clientHeight - oP.clientHeight
+					}
+					
+					oP.style.left = x + "px";
+					oP.style.top = y + "px";
+				}
+			}
+			
+			document.onmouseup = function(){
+				oDiv.onmousemove = null;
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

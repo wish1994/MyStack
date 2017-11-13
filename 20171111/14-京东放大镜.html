@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.smallPic{
+				width: 350px;
+				height: 350px;
+				border: 1px solid #ccc;
+				margin: 100px;
+				position: relative;
+			}
+			.smallPic .zoom{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 175px;
+				height: 175px;
+				background: #200;
+				opacity: 0.5;
+				border: 1px solid #aaa;
+				display: none;
+			}
+			.bigPic{
+				width: 400px;
+				height: 400px;
+				background: url(img/da.jpg);
+				position: absolute;
+				top: 100px;
+				left: 500px;
+				border: 1px solid #000;
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="smallPic" id="smallPic">
+			<img src="img/xiao.jpg" alt="" />
+			<div class="zoom" id="zoom"></div>
+		</div>
+		
+		<div class="bigPic" id="bigPic"></div>
+		
+		
+		
+		<script type="text/javascript">
+			
+			//获取元素
+			var smallPic = document.getElementById("smallPic");
+			var zoom = document.getElementById("zoom");
+			var bigPic = document.getElementById("bigPic");
+			
+			//比例怎么算？？ 大图800*800 div400*400
+			//小图 盒子350*350  放大镜175*175
+			//所以放大镜总移动量 175    大图可移动量 400
+			//rate计算的比例
+			var rate = 400/175;
+			console.log(rate);
+			
+			
+			
+			//鼠标移入商品显示 
+			smallPic.onmouseover = function(){
+				zoom.style.display = "block";
+				bigPic.style.display = "block";
+			}
+			
+			//鼠标移出商品隐藏
+			smallPic.onmouseout = function(){
+				zoom.style.display = "none";
+				bigPic.style.display = "none";
+			}
+			
+			//鼠标移动事件监听
+			smallPic.onmousemove = function(event){
+				var event = event || window.event;
+				
+				//得到页面的卷动值
+				var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+				
+				var x = event.clientX - (getAllTop(smallPic) -scrollTop ) - 87;
+				var y = event.clientY - (getAllLeft(smallPic) -scrollLeft ) - 87;
+				
+//				console.log(x,y);
+				
+				//范围
+				if(x < 0 ) x = 0;
+				if(y < 0 ) y = 0;
+				if(x > 175) x = 175;
+				if(y > 175) y = 175;
+				
+				//赋值
+				zoom.style.left = x + 'px';
+				zoom.style.top = y + 'px';
+				
+				//让大图移动
+				bigPic.style.backgroundPosition = -x * rate +"px " + -y * rate + "px";
+			
+			}
+			
+			
+			//返回这个元素在页面的净位置
+			function getAllTop(obj){
+				//累加器
+				//一会while开始，是从它父级累加
+				var allTop = obj.offsetTop;
+				//当前正在计算高度的元素
+				var currentObj = obj;
+				while(currentObj = currentObj.offsetParent){
+					allTop += currentObj.offsetTop;
+				}
+				return allTop;
+			}
+			
+			//返回这个元素在页面的净位置
+			function getAllLeft(obj){
+				//累加器
+				//一会while开始，是从它父级累加
+				var allLeft = obj.offsetLeft;
+				//当前正在计算高度的元素
+				var currentObj = obj;
+				while(currentObj = currentObj.offsetParent){
+					allLeft += currentObj.offsetLeft;
+					
+				}
+				return allLeft;
+			}
+			
+		</script>
+	</body>
+</html>

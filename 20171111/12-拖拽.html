@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#oDiv{
+				width: 200px;
+				height: 200px;
+				background: orange;
+				position: absolute;
+				top: 200px;
+				left: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		我是一个文本
+		<div id="oDiv"></div>
+		
+		
+		<script type="text/javascript">
+			//事件  1.鼠标按下 onmousedown   获取要拖拽的元素
+//				   2.鼠标移动  onmousemove   运动 赋值
+//				   3.鼠标抬起  onmouseup    释放拖拽的元素
+			
+			var oDiv = document.getElementById("oDiv");
+			
+			oDiv.onmousedown = function(event){
+				
+				//鼠标按下的时候，获取鼠标的位置-元素到页面的距离
+				//这个位置实际上鼠标到元素边框的距离
+				var deltaX = event.clientX - oDiv.offsetLeft;
+				var deltaY = event.clientY - oDiv.offsetTop;
+				
+				document.onmousemove = function(event){
+					//赋值 还需要减去误差
+					oDiv.style.left = event.clientX - deltaX + "px"; 
+					oDiv.style.top = event.clientY - deltaY + "px"; 
+				}
+				
+				return false;
+			}
+			
+			document.onmouseup = function(){
+				//document身上的监听，设置为null ，删除了监听
+				document.onmousemove = null;
+			}
+			
+		</script>
+	</body>
+</html>
