@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 100px;
+        }
+        div:nth-child(1){
+            float: left;            
+            width: 200px;
+            background: #f00;
+        }
+        div:nth-child(2){
+            float: left;
+            width:calc(100% - 400px);
+
+            background: #0f0;
+        }
+        div:nth-child(3){
+            float: right;
+            width: 200px;
+            background: #00f;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+</body>
+</html>

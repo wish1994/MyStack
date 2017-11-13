@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 100px;
+            float: left;
+        }
+        div:nth-child(1){
+            width: 250px;
+            background: #f00;
+        }
+        div:nth-child(2){
+            background: #0f0;
+        }
+        div:nth-child(3){
+            float:right;
+            width: 200px;
+            background: #00f;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script src="../../jquery-3.2.1.js"></script>
+<script>
+    $("div").eq(1).css({width:(document.documentElement.clientWidth-450)+"px"});
+    window.onresize=function(){
+        $("div").eq(1).css({width:(document.documentElement.clientWidth-450)+"px"});       
+    }
+</script>
+</html>
