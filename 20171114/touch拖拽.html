@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+*{
+	padding: 0;
+	margin: 0;
+}
+img{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+}
+
+    </style>
+</head>
+<body>
+    <img src="../picture/dog.jpg" alt="">
+</body>
+<script>
+    var oImg=document.getElementsByTagName("img")[0];
+    var newX=0;
+    var newY=0;
+    var deltaX;
+    var deltaY;
+    oImg.addEventListener("touchstart",function(e){
+        e.preventDefault();
+        deltaX=e.touches[0].clientX-newX;
+        deltaY=e.touches[0].clientY-newY;
+
+    },false);    
+    oImg.addEventListener("touchmove",function(e){
+        e.preventDefault();
+        newX=e.touches[0].clientX-deltaX;
+        newY=e.touches[0].clientY-deltaY;
+        oImg.style.left=newX+"px";
+        oImg.style.top=newY+"px";
+
+    },false)
+</script>
+</html>

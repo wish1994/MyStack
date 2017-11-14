@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	overflow: hidden;
+}
+#banner{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+#banner ul{
+	list-style: none;
+}
+#banner ul li{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+#banner ul li img{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li>
+                <a><img src="响应式第二天内容/img/0.png" alt=""></a>
+            </li>
+            <li>
+                <a><img src="响应式第二天内容/img/1.png" alt=""></a>
+            </li>
+            <li>
+                <a><img src="响应式第二天内容/img/2.png" alt=""></a>
+            </li>
+            <li>
+                <a><img src="响应式第二天内容/img/3.png" alt=""></a>
+            </li>
+            <li>
+                <a><img src="响应式第二天内容/img/4.png" alt=""></a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    var banner=document.getElementById("banner");
+    var idx=0;
+    var next=1;
+    var pre=4;
+    var windowWidth;
+    window.onresize=init;
+    init();
+    function init(){
+        windowWidth=document.documentElement.clientWidth;
+        $("#banner").css({height:windowWidth*(130/200)+"px"});
+        for(var i = 1 ; i < $("#banner li").length ; i++){
+            $("#banner li").eq(i).css({"-webkit-transform":"translateX(" + windowWidth + "px)"})
+        }
+        $("#banner li").eq(idx).css({transition:"none"});
+        $("#banner li").eq(pre).css({transition:"none"});
+        $("#banner li").eq(next).css({transition:"none"});
+
+        $("#banner li").eq(idx).css({"-webkit-transform":"translateX(0px)"});
+        $("#banner li").eq(next).css({"-webkit-transform":"translateX(" + windowWidth + "px)"});
+        $("#banner li").eq(pre).css({"-webkit-transform":"translateX(" + -windowWidth + "px)"});
+    }
+    banner.addEventListener("touchstart",touchstartHandler,false);
+	banner.addEventListener("touchmove",touchmoveHandler,false);
+    banner.addEventListener("touchend",touchendHandler,false);
+    
+
+    var deltaX;
+    var startX;
+    var startTime;
+
+    var timer = setInterval(function(){
+        showNext();
+    },2000);
+
+    function touchstartHandler(event){
+        event.preventDefault();
+        if(event.touches.length > 1){
+            return;
+        }
+        clearInterval(timer);
+        deltaX = event.touches[0].clientX;
+        startX = event.touches[0].clientX;
+        $("#banner li").eq(idx).css({transition:"none"});
+        $("#banner li").eq(pre).css({transition:"none"});
+        $("#banner li").eq(next).css({transition:"none"});
+
+        startTime = new Date();
+
+        $("#banner li").eq(idx).css({"-webkit-transform":"translateX(0px)"});
+        $("#banner li").eq(next).css({"-webkit-transform":"translateX(" + windowWidth + "px)"});
+        $("#banner li").eq(pre).css({"-webkit-transform":"translateX(" + -windowWidth + "px)"});
+    }
+
+    function touchmoveHandler(event){
+
+        event.preventDefault();
+
+        if(event.touches.length > 1){
+            return;
+        }
+        clearInterval(timer);
+
+        var clientX = event.touches[0].clientX;
+        $("#banner li").eq(idx).get(0).style.webkitTransform = "translateX(" + (clientX - deltaX) + "px)";
+        $("#banner li").eq(next).get(0).style.webkitTransform = "translateX(" + (windowWidth + clientX - deltaX) + "px)";
+        $("#banner li").eq(pre).get(0).style.webkitTransform = "translateX(" + (-windowWidth + clientX - deltaX) + "px)";
+    }
+
+    function touchendHandler(event){
+
+        event.preventDefault();
+
+        var distance = event.changedTouches[0].clientX - startX;
+
+        var time = new Date() - startTime;
+
+        if(distance >= windowWidth / 2 || (distance > 30 && time < 300)){
+            showPre();	
+        }else if(distance <= -windowWidth / 2 || (distance < -30 && time < 300)){
+            showNext();
+        }else{
+            $("#banner li").eq(pre).get(0).style.transition = "all 0.3s ease 0s";
+            $("#banner li").eq(idx).get(0).style.transition = "all 0.3s ease 0s";
+            $("#banner li").eq(next).get(0).style.transition = "all 0.3s ease 0s";
+
+            $("#banner li").eq(pre).get(0).style.webkitTransform = "translateX(" + -windowWidth + "px)";
+            $("#banner li").eq(idx).get(0).style.webkitTransform = "translateX(0px)";
+            $("#banner li").eq(next).get(0).style.webkitTransform = "translateX(" + windowWidth + "px)";
+        }
+
+        clearInterval(timer);
+        timer = setInterval(function(){
+            showNext();
+        },2000);
+    }
+    function showPre(){
+            next = idx;
+            idx = pre;
+            pre--;
+            if(pre < 0){
+                pre = 4;
+            }
+            $("#banner li").eq(idx).get(0).style.transition = "all 0.3s ease 0s";
+            $("#banner li").eq(next).get(0).style.transition = "all 0.3s ease 0s";
+            $("#banner li").eq(idx).get(0).style.webkitTransform = "translateX(0px)";
+            $("#banner li").eq(next).get(0).style.webkitTransform = "translateX(" + windowWidth + "px)";            
+    }
+
+    function showNext(){
+        console.log("向左边滑动成功")
+        pre = idx;
+        idx = next;
+        next++;
+        if(next > 4){
+            next = 0;
+        }
+
+        $("#banner li").eq(next).get(0).style.transition = "none";
+        $("#banner li").eq(next).get(0).style.webkitTransform = "translateX(" + windowWidth + "px)";
+
+        $("#banner li").eq(pre).get(0).style.transition = "all 0.3s ease 0s";
+        $("#banner li").eq(idx).get(0).style.transition = "all 0.3s ease 0s";
+
+        $("#banner li").eq(pre).get(0).style.webkitTransform = "translateX(" + -windowWidth + "px)";
+        $("#banner li").eq(idx).get(0).style.webkitTransform = "translateX(0px)";
+    }
+
+
+</script>
+</html>
