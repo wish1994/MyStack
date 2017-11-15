@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: orange;
+				margin-right: 10px;
+				float: left;
+			}
+			p{
+				width: 50px;
+				height: 50px;
+				background: greenyellow;
+				margin-right: 10px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<!--<p>p</p>-->
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<!--<p>p</p>-->
+		</section>
+		
+		
+		<script src="../../zepto.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			$("div:first-child").css("background","#800080");
+
+/* 选择在父元素中第一个出现的<p>，而不管其在兄弟内的位置如何 */
+//			$("div:first-of-type").css("background","#800080");
+			
+//			$("div:last-of-type").css("background","#800080");
+			
+			$("div:nth-of-type(3n+2)").css("background","#800080");
+
+//			$("div:nth-of-type(n+2)").css("background","#800080");
+			
+			
+		</script>
+	</body>
+</html>

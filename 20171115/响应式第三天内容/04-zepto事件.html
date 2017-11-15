@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 150px;
+				background: purple;
+				margin-top: 10px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</section>
+		
+		
+		<script src="../../zepto.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+//			$("div").on("touchstart",function(){
+//				$(this).css("background","red");
+//			})
+			
+//swipeLeft 用户在某个元素上从左滑动超过30px 时触发
+			$("div").on("swipeLeft",function(event){
+				event.preventDefault();
+				
+//				console.log(1);
+				
+				$(this).animate({"rotate": "-360deg"},1000,function(){
+					$(this).css("rotate","0deg");
+				})
+			})
+			
+			
+			$("div").on("swipeRight",function(event){
+				event.preventDefault();
+				
+//				console.log(1);
+				
+				$(this).animate({"rotate": "360deg"},1000,function(){
+					$(this).css("rotate","0deg");
+				})
+			})
+			
+		</script>
+	</body>
+</html>

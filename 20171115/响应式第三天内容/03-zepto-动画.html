@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				perspective: 500px ;
+			}
+			div{
+				width: 50px;
+				height: 50px;
+				background: orange;
+				margin-right: 10px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			
+		</section>
+		
+		
+		<script src="../../zepto.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			
+			$("div").animate(
+				{
+					"background-color": "red",
+					"rotate": "500deg",
+					"translateZ" : "400px"
+				},
+				2000,
+				function(){
+					$(this).css("background","blue");
+				}
+			);
+					
+					
+		</script>
+	</body>
+</html>
