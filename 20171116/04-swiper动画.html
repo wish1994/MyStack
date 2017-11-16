@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="styles/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="styles/animate.min.css"/>
+		<style type="text/css">
+			.swiper-container{
+				width: 600px;
+				height: 300px;
+			}
+			.no1{
+				background: skyblue;
+			}
+			.no2{
+				background: orange;
+			}
+			.no3{
+				background: gold;
+			}
+			.oP{
+				font-size: 20px;
+				color: purple;
+			}
+		</style>
+	
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide no1">
+					 <!--在需要运动的元素上面增加类名  ani   ，和其他的类似插件相同，Swiper Animate需要指定几个参数：
+
+					swiper-animate-effect：切换效果，例如 fadeInUp 
+					swiper-animate-duration：可选，动画持续时间（单位秒），例如 0.5s
+					swiper-animate-delay：可选，动画延迟时间（单位秒），例如 0.3s-->
+										
+					
+					<p 
+					class="ani oP"
+					swiper-animate-effect="swing"
+					swiper-animate-duration="3s"
+					>展示内容</p>
+					<div 
+					class="ani"
+					swiper-animate-effect="fadeInRight"
+					swiper-animate-duration="5s"
+					swiper-animate-delay="1s"
+					>从右边飞过来的文字</div>
+					
+				</div>
+				<div class="swiper-slide no2">slide2</div>
+				<div class="swiper-slide no3">slide3</div>
+			</div>
+			
+			<!--需要分页器-->
+			<div class="swiper-pagination"></div>
+			
+			<!--按钮-->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			
+		</div>
+		
+		
+		
+		<script src="scripts/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/swiper.animate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var mySwiper = new Swiper(".swiper-container",{
+				//如果需要分页器
+				pagination: ".swiper-pagination",
+				
+				//需要按钮
+				nextButton: ".swiper-button-next",
+				prevButton: ".swiper-button-prev",
+				
+				
+				onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+			      swiperAnimateCache(swiper); //隐藏动画元素 
+			      swiperAnimate(swiper); //初始化完成开始动画
+			    }, 
+			    onSlideChangeEnd: function(swiper){ 
+			      swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+			    } 
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,268 @@
+html{
+	/*rem的参考*/
+	font-size: 15px;
+}
+@media screen and (min-width: 400px){
+	html{
+		/*rem的参考*/
+		font-size: 18px;
+	}
+}
+
+
+body{
+	font-size: 14px;
+	font-family: "Microsoft Yahei";
+	padding-top: 45px;
+	background: #f2f2f2;
+}
+header{
+	position: fixed;
+	top: 0;
+	left: 50%;
+	width: 100%;
+	height: 45px;
+	border-bottom: 1px solid #CCCCCC;
+	max-width: 540px;
+	background: #F6F6F6;
+	z-index: 999;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	padding-left: 10px;
+	padding-right: 60px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+header .user{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 48px;
+	height: 44px;
+}
+header .user a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 70px;
+	text-align: center;
+	text-decoration: none;
+	color: #2EAAE0;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+}
+header .user a::before{
+	content: "";
+	position: absolute;
+	height: 23px;
+	width: 23px;
+	left: 50%;
+	top: 5px;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	background: url(../img/icons.png) no-repeat -59px -195px;
+	background-size: 104px 328px;
+	/*这里这个background-size指的是缩放之后的精灵图整体尺寸
+	手机页面的精灵图,一律是2倍大小
+	精灵图原尺寸208-655 所以这里是104 328*/
+	
+}
+header .soso_box{
+	width: 100%;
+	height: 24px;
+	border: 1px solid #999;
+	border-radius: 8px;
+	box-shadow: 0px 1px 1px rgba(111,111,111,0.8);
+	position: relative;
+	top: 8px;
+	background: white;
+	padding-left: 30px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+header .soso_box::before{
+	content: "";
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	background: url(../img/icons.png) no-repeat -60px -280px;
+	background-size: 104px 328px;;
+	
+}
+header .soso_box input{
+	border: none;
+	outline: none;
+	font-size: 12px;
+	position: relative;
+	top: 1px;
+	width: 90%;
+}
+
+.banner{
+	width: 100%;
+	height: ;
+	max-width: 540px;
+	margin: 0 auto;
+	background: yellowgreen;
+}
+
+nav{
+	width: 100%;
+	max-width: 540px;
+	margin: 0 auto;
+	padding: 4px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: white;
+	overflow: hidden;
+}
+nav .row{
+	overflow: hidden;
+	margin-bottom: 0.3333rem;
+}
+nav .row ul li{
+	float: left;
+	width: 33.3333%;
+	height: 3rem;
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+nav .row ul li:nth-child(1){
+	height: 6rem;
+}
+nav .row ul li div{
+	width: 100%;
+	height: 100%;
+}
+
+nav .row ul li:nth-child(1) div{
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+nav .row ul li:nth-child(3) div{
+	border-top-right-radius: 8px;
+}
+nav .row ul li:nth-child(5) div{
+	border-bottom-right-radius: 8px;
+}
+
+nav .row:nth-child(1) ul li>div{
+	background-color: #ff697a;
+}
+nav .row:nth-child(2) ul li>div{
+	background-color: #3d98ff;
+}
+nav .row:nth-child(3) ul li>div{
+	background-color: #44c522;
+}
+nav .row:nth-child(4) ul li>div{
+	background-color: #fc9720;
+}
+nav ul li>div a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 3rem;
+	text-decoration: none;
+	color: white;
+	font-size: 1rem;
+	box-shadow: 1px 1px 1px rgba(111,111,111,0.8);
+	position: relative;
+	
+}
+nav ul li:nth-child(1)>div>a{
+	line-height: 3.2rem;
+}
+nav .row ul li:nth-child(1)>div>a::before{
+	content: "";
+	position: absolute;
+	bottom: 0.7rem;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	width: 40px;
+	height: 33px;
+	background: url(../img/icons.png) no-repeat -0px -130px;
+	background-size: 104px 328px;
+}
+nav .row:nth-child(2) ul li:nth-child(1)>div>a::before{
+	background-position: -50px -122px;
+	width: 41px;
+	height: 24px;
+}
+nav .row:nth-child(3) ul li:nth-child(1)>div>a::before{
+	background-position: 0px -180px;
+	width: 34px;
+	height: 40px;
+}
+nav .row:nth-child(4) ul li:nth-child(1) div{
+	border-bottom-left-radius: 0;
+}
+nav .row:nth-child(4) ul li:nth-child(4) div{
+	border-bottom-left-radius: 8px;
+}
+nav .row:nth-child(4) ul li:nth-child(5) div{
+	border-bottom-right-radius: 0;
+}
+nav .row:nth-child(4) ul li:nth-child(6) div{
+	border-bottom-right-radius: 8px;
+}
+
+nav .row:nth-child(4) ul li:nth-child(1)>div>a::before{
+	display: none;
+}
+nav .row:nth-child(4) ul li:nth-child(1){
+	height: 3rem;
+}
+
+.products{
+	width: 100%;
+	max-width: 540px;
+	margin: 0 auto;
+	margin-top: 4px;
+	background: white;
+	border-radius: 6px;
+	overflow: hidden;
+}
+.products ul li{
+	float: left;
+	width: 25%;
+	height: 69px;
+	border-right: 1px solid #F2F2F2;
+	border-bottom: 1px solid #F2F2F2;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.products ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 100px;
+	text-decoration: none;
+	color: #000;
+	position: relative;
+}
+.products ul li a::before{
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	width: 26px;
+	height: 26px;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	background: url(../img/un_ico_subnav.png);
+	background-size: 26px 235px;
+}
+.products ul li:nth-child(n+5){
+	border-bottom: none;
+}

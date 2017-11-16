@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="styles/swiper.min.css"/>
+		<style type="text/css">
+			.swiper-container{
+				width: 100%;
+				height: 300px;
+			}
+			
+			
+		</style>
+	
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">slide1</div>
+				<div class="swiper-slide">slide2</div>
+				<div class="swiper-slide">slide3</div>
+			</div>
+			
+			<!--需要分页器-->
+			<div class="swiper-pagination"></div>
+			
+			<!--按钮-->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			
+			<!--滚动条-->
+			<div class="swiper-scrollbar"></div>
+			
+		</div>
+		
+		
+		
+		<script src="scripts/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var mySwiper = new Swiper(".swiper-container",{
+				//设置滑动方向
+//				direction : 'vertical',
+				//自动播放
+				autoplay: 5000,
+				//循环
+				loop: true,
+				//点击过渡
+				paginationClickable :true,
+				
+				//如果需要分页器
+				pagination: ".swiper-pagination",
+				
+				//需要按钮
+				nextButton: ".swiper-button-next",
+				prevButton: ".swiper-button-prev",
+				
+				// 如果需要滚动条
+    			scrollbar: '.swiper-scrollbar',
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

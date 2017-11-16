@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>携程app</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="xiecheng.css">
+</head>
+<body>
+    <header>
+        <div id="search">
+            <input type="text" placeholder="搜索酒店 航班 目的地">
+        </div>
+        <div class="user">
+            <a>我  的</a>
+        </div>
+    </header>
+    <div id="banner"></div>
+    <nav>
+        <div class="row">
+            <ul> 
+                <li><div><a href="#">酒 店</a></div><div class="logo"></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul>
+                <li><div><a href="#">机 票</a></div><div class="logo"></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul>
+                <li><div><a href="#">旅 游</a></div><div class="logo"></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+                <li><div><a href="#">团 购</a></div></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+<script>
+    var banner=document.getElementById("banner");
+    setBanner();
+    window.onresize=setBanner;
+    function setBanner(){
+        var windowWidth=document.documentElement.clientWidth;
+        banner.style.height=windowWidth/3+"px";
+    }
+</script>
+</html>

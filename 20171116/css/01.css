@@ -1,0 +1,22 @@
+.widthHeight {
+  width: 100px;
+  height: 100px;
+}
+.font {
+  color: #666666;
+  font-size: 28px;
+}
+.background {
+  background: red;
+}
+.border {
+  border: 1px solid black;
+}
+#box {
+  width: 100px;
+  height: 100px;
+  color: #666666;
+  font-size: 28px;
+  background: red;
+  border: 1px solid black;
+}
