@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href=""><img src="http://static.ghostchina.com/image/b/46/4f5566c1f7bc28b3f7ac1fada8abe.png" alt="" style="display:block;margin:auto"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="navbar-header">
+                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false" id="btn">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </span>
+                    </div>
+                    <div class="navbar-collapse collapse" id="main-menu" aria-expanded="false">
+                        <ul class="menu">
+                            <li class="nav-current" role="presentation"><a href="">首页</a></li>
+                            <li role="presentation"><a href="">论坛</a></li>
+                            <li role="presentation"><a href="">快捷手册</a></li>
+                            <li role="presentation"><a href="">中文文档</a></li>
+                            <li role="presentation"><a href="">下载</a></li>
+                            <li role="presentation"><a href="">关于</a></li>
+                        </ul>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content">
+                    <article>
+
+                    </article>
+                    <article>
+                            
+                    </article>
+                    <article>
+                            
+                    </article>
+                    <article>
+                            
+                    </article>
+                </main>
+                <aside class="col-md-4 side-content">
+                    <div class="widget">
+
+                    </div>
+                    <div class="widget">
+                        
+                    </div>
+                    <div class="widget">
+
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </section>
+    
+</body>
+<script src="../jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    function set(){
+        var windowWidth=document.documentElement.clientWidth;
+        if(windowWidth>614){
+            $("#btn").hide();
+        }else{
+            $("#btn").show();           
+        }
+
+    }
+    set();
+    window.onresize=set;
+
+</script>
+</html>
