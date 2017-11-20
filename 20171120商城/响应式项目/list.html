@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>列表详情页</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<header>
+			<ul id="nav">
+			</ul>
+		</header>
+		
+		<section>
+			<ul class="goodList" id="goodList">
+			</ul>
+		</section>
+		
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+		$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
+			
+			var obj = response;
+			
+			for(var i=0;i<obj.data.length;i++){
+				
+				$("#nav").append('<li><a href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');
+				
+			}
+		})
+		
+		var str = location.search.substr(1);
+		
+		var catId = str.split("=");
+		
+			
+		
+		$.ajax({
+			"url": "http://h6.duchengjiu.top/shop/api_goods.php",
+			"type": "GET",
+			"data": {
+				"cat_id": catId[1]
+			},
+			"dataType": "json",
+			"success": function(response){
+				
+				var obj = response;
+			
+				for(var i=0;i<obj.data.length;i++){					
+					$("#goodList").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p></li>');
+					
+				}
+			}
+		})
+		</script>
+	</body>
+</html>

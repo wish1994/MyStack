@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<header>
+			<div class="head">
+				<a href="index.html" class="logo">
+					<img src="images/1.png" alt="" />
+				</a>
+				<p class="search"> 
+					<input type="text" id="search"/>
+					<input type="button" id="btn1" value="搜索"/>
+				</p>
+				<div class="login">
+					<a href="register.html">注册</a>
+					<a href="login.html">登录</a>
+				</div>
+			</div>
+			
+			<ul id="nav"></ul>
+			
+		</header>
+		
+		
+		<section>
+			<ul class="goodList" id="goodList"></ul>
+		</section>
+		
+	</body>
+	<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+		
+		$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
+			
+			var obj = response;
+			
+			for(var i=0;i<obj.data.length;i++){
+				
+				$("#nav").append('<li><a href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');
+				
+			}
+		})
+		
+		$.get("http://h6.duchengjiu.top/shop/api_goods.php",function(response){
+			
+			var obj = response;
+			
+			for(var i=0;i<obj.data.length;i++){
+				
+				
+				$("#goodList").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p></li>');
+				
+			}
+			
+		})
+		
+		$("#btn1").click(function(){
+			var searchStr =  $("#search").val();
+			
+			console.log(searchStr);
+			
+			window.location.href = "detail.html?goods_id=" + searchStr;
+		})
+		window.onload=function(){
+			if(localStorage.getItem("token")){
+				$(".login").html(localStorage.getItem("username")+"<button id='btn2'>取消登录</button>")
+			}else{
+				$(".login").html('<a href="register.html">注册</a><a href="login.html">登录</a>')
+			}
+			$("#btn2").click(function(){
+				localStorage.clear();
+				window.location.href="index.html";
+			})
+		}
+		
+		
+	</script>
+</html>

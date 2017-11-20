@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <style>
+input{
+	margin-bottom: 15px;
+}
+
+
+    </style>
+</head>
+<body>
+    <input type="text" name="username" placeholder="请输入用户名">
+    <br>
+    <input type="password" name="password" placeholder="请输入密码">
+    <br>
+    <input type="button" id="btn" value="登录">
+    
+</body>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $("#btn").click(function(){
+        var username=$("input[name='username']").val();
+        var password=$("input[name='password']").val();
+        $.post("http://h6.duchengjiu.top/shop/api_user.php",{"status":"login","username":username,"password":password},function(obj){
+            for(property in obj.data){
+                if(obj.data.hasOwnProperty(property)){
+                    localStorage.setItem(property,obj.data[property])
+                }
+            }
+        })
+    })
+</script>
+</html>
