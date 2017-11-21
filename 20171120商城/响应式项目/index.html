@@ -52,9 +52,26 @@
 			var obj = response;
 			
 			for(var i=0;i<obj.data.length;i++){
+				let oli=document.createElement("li");
+				oli.innerHTML='<img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p>';
 				
-				
-				$("#goodList").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p></li>');
+				let sBtn=document.createElement("button");
+				sBtn.innerText="加入购物车";
+				$("#goodList").append(sBtn);
+				sBtn.id=obj.data[i].goods_id;
+				$(sBtn).click(function(){
+					if(localStorage.getItem("token")){
+						$.post("http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.getItem("token"),{"goods_id" : sBtn.id,"number": 1},function(){
+							alert("添加成功！")
+						})
+					}else{
+						alert("请登录")
+						window.location.href="login.html";
+					}
+
+				})
+				$(oli).append(sBtn);
+				$("#goodList").append(oli);
 				
 			}
 			
@@ -65,7 +82,27 @@
 			
 			console.log(searchStr);
 			
-			window.location.href = "detail.html?goods_id=" + searchStr;
+			$.ajax({
+				"url": "http://h6.duchengjiu.top/shop/api_goods.php",
+				"type": "GET",
+				"data": {
+					"search_text": searchStr
+				},
+				"dataType": "json",
+				"success": function(response){					
+					var obj = response;
+					var html ='';
+					for(var i=0;i<obj.data.length;i++){
+						
+						
+						html+='<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+ '</p></li>';
+						
+						
+					}
+					
+					$("#goodList").html(html);
+				}
+			})
 		})
 		window.onload=function(){
 			if(localStorage.getItem("token")){
