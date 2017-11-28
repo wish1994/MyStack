@@ -1,48 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>登录</title>
-    <style>
-input{
-	margin-bottom: 15px;
-}
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+	</head>
+	<body>
+		<div>
+			<p><input type="text" name="username" placeholder="请输入用户名"/></p>
+			<p><input type="password" name="password" placeholder="请输入密码6-20"/></p>
+			<p><input type="button" id="login" value="登录"/></p>
+		</div>
+		
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			//判断当前用户名已登录，则返回首页，并提示
+			if( localStorage.getItem("token") ){
+				$("body").html("<h1>" + localStorage.getItem("username") + "您已经登录成功了！</h1>")
+				
+				setTimeout(function(){
+					location.href = "index.html";
+				},2000);
+			}
+			
+			//登录验证
+			$("#login").click(function(){
+				
+				var username = $('input[name="username"]').val();
+				var password = $('input[name="password"]').val();
+				
+				console.log(username,password);
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_user.php",
+					"type":"POST",
+					"dataType": "json",
+					"data": {
+						"status": "login",
+						"username": username,
+						"password": password
+					},
+					"success": function(response){
+						console.log(response);
+						
+						
+						//当我登录成功的时候
+						if(response.code === 0){
+							
+							//存储一条内容方法
+//							localStorage.setItem("token",response.data.token);
+//							console.log(localStorage);
+							
+							//把个人信息存入变量data
+							var data = response.data;
+							
+							//遍历每一项  property属性 这是个变量
+							for( property in data){
+								
+								//判断这个属性时候是自身属性
+								if(data.hasOwnProperty(property)){
+									localStorage.setItem(property,data[property]);
+								}
+								
+								
+							}
+							
+							
+							
+							alert(response.message);
+//							console.log(localStorage);
+							
+							//判断如果有callback则跳转到指定callbackURL页面，否则跳转到首页
+							var callbackURL = location.hash.substr(10);
+							
+//							console.log(callbackURL);
+							
+							if( callbackURL ){
+								window.location.href = callbackURL;
+							}else{
+								window.location.href = "index.html";
+							}
+							
+							
+						}
+					}
+				});
+			})
+			
+//			把个人信息存储到本地存储中
 
-
-
-    </style>
-</head>
-<body>
-    <input type="text" name="username" placeholder="请输入用户名">
-    <br>
-    <input type="password" name="password" placeholder="请输入密码">
-    <br>
-    <input type="button" id="btn" value="登录">
-    
-</body>
-<script src="../../jquery-3.2.1.js"></script>
-<script>
-    $("#btn").click(function(){
-        var username=$("input[name='username']").val();
-        var password=$("input[name='password']").val();
-        $.post("http://h6.duchengjiu.top/shop/api_user.php",{"status":"login","username":username,"password":password},function(obj){
-            if(obj.code===0){
-                for(property in obj.data){
-                    if(obj.data.hasOwnProperty(property)){
-                        localStorage.setItem(property,obj.data[property])
-                    }
-                }
-                alert("登录成功");
-                var callbackURL=location.hash.substr(10);
-                if(callbackURL){
-                    location.href=callbackURL;
-                }else{
-                    window.location.href="index.html"
-                }
-            }
-        })
-    })
-</script>
+			
+//			如果从商品详情页面跳转过来的,进行处理
+			
+			
+		</script>
+	</body>
 </html>

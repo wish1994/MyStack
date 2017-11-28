@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地址和支付方式</title>
+		<link rel="stylesheet" href="css/checkout.css" />
+	</head>
+	<body>
+		<h4>收货地址</h4>
+		<div class="address">
+			<span class="newAddress">新增地址</span>
+			<ul class="address-ul">
+				<li class="address-item" data-id="1">收货人：小明 北京 石景山 136xxxxxxxx 实兴大街朗城大厦2层</li>
+			</ul>
+		</div>
+		
+		<div class="add" id="add">
+			<span class="close">X</span>
+			<form action="">
+				<p>
+					收货人名称：
+					<input type="text" name="address_name" placeholder="请输入收货人姓名"/>
+				</p>
+				<p>
+					收货人手机：
+					<input type="text" name="mobile" placeholder="请输入收货人手机号"/>
+				</p>
+				<p>
+					省：
+					<input type="text" name="province" placeholder="请输入收货人省"/>
+				</p>
+				<p>
+					市：
+					<input type="text" name="city" placeholder="请输入收货人市"/>
+				</p>
+				<p>
+					区：
+					<input type="text" name="district" placeholder="请输入收货人区县"/>
+				</p>
+				<p>
+					地址：
+					<input type="text" name="address" placeholder="请输入收货人地址"/>
+				</p>
+				
+				<input type="button" value="新建收货信息" id="btn"/>
+				
+			</form>
+			
+			
+			
+		</div>
+		
+		<div id="sum">
+			
+		</div>
+		<input type="button" value="下订单" id="order"/>
+		
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var address_id = 0;
+			
+			addressAjax();
+			function addressAjax(){
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_useraddress.php?token="+localStorage.token,
+					"type":"GET",
+					"dataType": "json",
+					"success": function(response){
+						
+						if(response.code === 0){
+//							console.log(response);
+							
+							
+							var htmlData = '';
+							for(var i=0;i<response.data.length;i++){
+								var obj = response.data[i];
+								
+								htmlData += '<li class="address-item" data-id="' +obj.address_id+ '">收货人：'
+										 +  obj.address_name 
+										 +  '省份：' + obj.province
+										 +  '市：' + obj.city
+										 +  '区：' + obj.district
+										 +  '街道：' + obj.address
+										 +  '手机号：' + obj.mobile
+										 +  '<span class="remove">删除</span></li>'
+								
+							}
+							$(".address-ul").html(htmlData);
+							
+							
+							//添加点击事件
+							$(".address-item").click(function(event){
+								
+								$(this).addClass("active").siblings().removeClass("active");
+								
+//								console.log(event.target);
+								if(event.target){
+									address_id = event.target.getAttribute("data-id");
+//									console.log(address_id);
+								}
+							})
+							
+							//删除地址事件
+							$(".remove").click(function(event){
+								
+								console.log(this.parentNode);
+								var remmoveLi = this.parentNode;
+								remmoveLi.parentNode.removeChild(remmoveLi);
+								
+								//调用删除的ajax
+								removeAjax(remmoveLi);
+							})
+							
+						}
+						
+						
+					}
+				});
+				
+			}
+			
+			
+			//显示新增地址
+			$(".newAddress").click(function(){
+				$("#add").show();
+			})
+			
+			//隐藏新增地址
+			$(".close").click(function(){
+				$("#add").hide();
+			})
+			
+			//新建收货人地址信息
+			$("#btn").click(function(){
+				//获取地址信息
+				var data = $("form").serialize();
+//				console.log(data);
+				
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_useraddress.php?token="+localStorage.token + "&status=add",
+					"type":"POST",
+					"dataType": "json",
+					"data": data,
+					"success": function(response){
+						
+						if(response.code === 0){
+//							console.log(response);
+							$("#add").hide();
+							addressAjax();
+						}
+						
+						
+					}
+				});
+			})
+			
+			//删除地址事件
+			function removeAjax(obj){
+				//获取地址的id
+				console.log( $(obj).attr("data-id") );
+				var address_id = $(obj).attr("data-id");
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_useraddress.php?token="+localStorage.token + "&status=delete&address_id="+ address_id,
+					"type":"GET",
+					"dataType": "json",
+					"success": function(response){
+						console.log(response);
+					}
+				});
+			}
+			
+			//获取总金额放入div元素
+			//通过location.search 获取get传过来数据,截取？ 在通过分割 = 
+			var str = location.search.substr(1);
+			//用分割方法得到 = 号两边的内容
+			var sum = str.split("=");
+			//用下标找到金额
+			console.log(sum[1]);
+			
+			$("#sum").html("<span>当前订单的总金额是￥" +sum[1]+ "元</span>")
+			
+			
+			//下订单事件
+			$("#order").click(function(){
+				//判断地址是否选中
+				if( address_id === 0){
+					alert("请选择地址后在下单！");
+					return;
+				}
+				
+				//ajax调用
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_order.php?token="+localStorage.token + "&status=add",
+					"type":"POST",
+					"dataType": "json",
+					"data": {
+						"address_id": address_id,
+						"total_prices": sum[1]
+					},
+					"success": function(response){
+						console.log(response);
+						if(response.code === 0){
+							alert("提交订单成功！");
+							//跳转到查询订单页面
+							location.href = "order.html";
+						}
+					}
+				});
+				
+				//跳转到订单页
+			})
+			
+			
+		</script>
+	</body>
+</html>

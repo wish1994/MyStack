@@ -4,20 +4,18 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-.success{
-	background: green;
-	color: white;
-	font-size: 16px;
-	display: none;
-}
-.error{
-	background: red;
-	color: white;
-	font-size: 16px;
-	display: none;
-}
-
-
+			.success{
+				background: green;
+				color: white;
+				font-size: 16px;
+				display: none;
+			}
+			.error{
+				background: red;
+				color: white;
+				font-size: 16px;
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -27,7 +25,7 @@
 				<span class="success">用户名可以使用</span>
 				<span class="error">用户名重复！请重新输入</span>
 			</p>
-			<input type="password" name="password" placeholder="请输入密码"/>
+			<input type="password" name="password" placeholder="请输入密码，长度应该是6-20位之内！"/>
 			<input type="button" value="注册" id="reg"/>
 			
 		<!--</form>-->
@@ -72,6 +70,44 @@
 						
 					}
 				
+				});
+				
+			})
+			
+//			注册验证
+			$("#reg").click(function(){
+				
+				var username = $('input[name="username"]').val();
+				var password = $('input[name="password"]').val();
+				
+//				console.log(username,password);
+
+				//验证密码的位数，不符合提示用户
+				if(password.length < 6 || password.length > 20){
+					
+					alert("密码长度应该是6-20位之内！");
+					return;
+				}
+				
+//				URL: 协议:// IP：端口/path(路径)/文件夹/文件?查询的参数#哈希
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_user.php",
+					"type":"POST",
+					"dataType": "json",
+					"data": {
+						"status": "register",
+						"username": username,
+						"password": password
+					},
+					"success": function(response){
+						console.log(response);
+						
+						if(response.code === 0){
+							alert(response.message);
+							window.location.href = "login.html";
+						}
+					}
 				});
 				
 			})

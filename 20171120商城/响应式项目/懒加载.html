@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/paging.css"/>
+	</head>
+	<body>
+		<!--商品展示-->
+		<ul class="shop" id="shop">
+			
+		</ul>
+		
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//信号量
+			var page = 1;
+			showShop(page);
+			
+			
+			function showShop(page){
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_goods.php?page="+page+"&pagesize=10",
+					"type":"GET",
+					"dataType": "json",
+					"success": function(response){
+						console.log(response);
+						
+						//添加数据
+						for(var i=0;i<response.data.length;i++){
+							var obj = response;
+							
+							$("#shop").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p><button goodid="' +obj.data[i].goods_id + '" class="oBtn">购物车</button></li>');
+						}
+						
+						//将全局信号量的锁变为true
+						lock = true;
+					}
+				});
+				
+			}
+			var lock = true;
+			//窗口的卷动事件监听，一定要函数截流，因为这个事儿很“敏感”
+			$(window).scroll(function(){
+//				console.log(1);
+				//函数截流
+				if(!lock) return;
+//				console.log($(window).height() );  //window的高度
+//				console.log($(window).scrollTop() ); //滚动条的值
+//				console.log($(document).height()); //document的高度
+				
+				var A = $(window).scrollTop();
+				var B = $(window).height();
+				var C = $(document).height();
+				
+				var rate = A / ( C - B );
+				console.log(rate);  //得到比例
+				
+				if(rate >= 0.7){
+					page++;	//信号量++
+					showShop(page);
+					//函数截流，每次触发的时候要把锁置为false
+					lock = false;
+				}
+			})
+		</script>
+	</body>
+</html>

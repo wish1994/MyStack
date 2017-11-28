@@ -20,7 +20,9 @@
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			
+			//页面导航：分类列表功能
 		$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
+//			console.log(response);
 			
 			var obj = response;
 			
@@ -31,11 +33,15 @@
 			}
 		})
 		
+		//通过url内容，得到分类id，查询分类商品，并展示到页面中
 		var str = location.search.substr(1);
 		
 		var catId = str.split("=");
 		
-			
+		console.log(catId);  //69是数组的下标1
+		
+		
+		
 		
 		$.ajax({
 			"url": "http://h6.duchengjiu.top/shop/api_goods.php",
@@ -45,10 +51,13 @@
 			},
 			"dataType": "json",
 			"success": function(response){
+//				console.log(response);
 				
 				var obj = response;
 			
-				for(var i=0;i<obj.data.length;i++){					
+				for(var i=0;i<obj.data.length;i++){
+					
+					
 					$("#goodList").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p></li>');
 					
 				}

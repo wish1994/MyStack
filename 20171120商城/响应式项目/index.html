@@ -21,22 +21,43 @@
 				</div>
 			</div>
 			
-			<ul id="nav"></ul>
+			<ul id="nav">
+				<!--<li><a href="#">分类</a></li>
+				<li><a href="#">分类1</a></li>
+				<li><a href="#">分类2</a></li>
+				<li><a href="#">分类3</a></li>-->
+			</ul>
 			
 		</header>
 		
 		
 		<section>
-			<ul class="goodList" id="goodList"></ul>
+			<ul class="goodList" id="goodList">
+				<!--'<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p>商品名称:' +obj.data[i].goods_name+ '</p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p>商品价格: ' +obj.data[i].price+  '</p></li>'-->
+			</ul>
 		</section>
 		
 	</body>
+	
+	
+	
+	
 	<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		//判断当前用户已经登录则显示用户名，否则显示注册，登录
+		if( localStorage.getItem("token") ){
+			$(".login").html("<span>用户名是：" + localStorage.getItem("username") + "</span><button id='close'>取消登录</button>");
+		}
 		
+		$("#close").click(function(){
+			
+			localStorage.clear();
+			$(".login").html('<a href="register.html">注册</a><a href="login.html">登录</a>');
+		})
 		
-		
+		//页面导航：分类列表功能
 		$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
+//			console.log(response);
 			
 			var obj = response;
 			
@@ -47,75 +68,30 @@
 			}
 		})
 		
+		
+		//热门商品
 		$.get("http://h6.duchengjiu.top/shop/api_goods.php",function(response){
+//			console.log(response);
 			
 			var obj = response;
 			
 			for(var i=0;i<obj.data.length;i++){
-				let oli=document.createElement("li");
-				oli.innerHTML='<img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p>';
 				
-				let sBtn=document.createElement("button");
-				sBtn.innerText="加入购物车";
-				$("#goodList").append(sBtn);
-				sBtn.id=obj.data[i].goods_id;
-				$(sBtn).click(function(){
-					if(localStorage.getItem("token")){
-						$.post("http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.getItem("token"),{"goods_id" : sBtn.id,"number": 1},function(){
-							alert("添加成功！")
-						})
-					}else{
-						alert("请登录")
-						window.location.href="login.html";
-					}
-
-				})
-				$(oli).append(sBtn);
-				$("#goodList").append(oli);
+				
+				$("#goodList").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p></li>');
 				
 			}
 			
 		})
 		
+		//搜索按钮，实现跳转
 		$("#btn1").click(function(){
 			var searchStr =  $("#search").val();
 			
 			console.log(searchStr);
 			
-			$.ajax({
-				"url": "http://h6.duchengjiu.top/shop/api_goods.php",
-				"type": "GET",
-				"data": {
-					"search_text": searchStr
-				},
-				"dataType": "json",
-				"success": function(response){					
-					var obj = response;
-					var html ='';
-					for(var i=0;i<obj.data.length;i++){
-						
-						
-						html+='<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+ '</p></li>';
-						
-						
-					}
-					
-					$("#goodList").html(html);
-				}
-			})
+			window.location.href = "detail.html?goods_id=" + searchStr;
 		})
-		window.onload=function(){
-			if(localStorage.getItem("token")){
-				$(".login").html(localStorage.getItem("username")+"<button id='btn2'>取消登录</button>")
-			}else{
-				$(".login").html('<a href="register.html">注册</a><a href="login.html">登录</a>')
-			}
-			$("#btn2").click(function(){
-				localStorage.clear();
-				window.location.href="index.html";
-			})
-		}
-		
 		
 	</script>
 </html>

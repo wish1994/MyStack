@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(){
+            console.log(this);
+            console.log(arguments);
+        }
+        var obj={};
+        function diyBind(obj,fn){
+            var args=[].slice.call(arguments,2);
+            return function(){
+                fn.call(obj,args)
+            }
+        }
+        var fun2=diyBind(obj,fun,1,2,3,4,5);
+        fun2();
+    </script>
+</body>
+</html>
