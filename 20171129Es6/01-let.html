@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li{
+				list-style:none;
+				width: 300px;
+				height: 100px;
+				background: orange;
+			}
+			li p{
+				width: 300px;
+				height: 30px;
+				background: yellowgreen;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul></ul>
+		
+		
+		<script type="text/javascript">
+//			es6和node.js都是默认开启严格模式的(不管你想不想开)
+//			目前es6需要配置环境,不然只能在高级浏览器中使用
+			
+			//模板字符串： 之前项目中用过
+			var obj = {
+				name: "江盟",
+				age: 20
+			}
+			
+			var str = `<li>
+						<p>姓名:${ obj.name }</p>
+						<p>年龄:${ obj.age }</p>
+					   </li>`;
+			
+			document.querySelector("ul").innerHTML = str;
+			
+			
+			
+//			let作用域 块作用域
+//			let局部变量关键词(限制在一个区域使用) var 全局变量
+			
+//			{
+//				var a = 1;
+//				let b = 2;
+//				console.log(b);
+//			}
+//			console.log(a);
+//			console.log(b);  //报错
+			
+			
+//			for(var i=0;i<10;i++){
+//				
+//			}
+//			console.log(i);  //10
+//			
+//			for(let e=0;e<10;e++){
+//				console.log(e); //0-9
+//			}
+//			console.log(e);   //报错
+			
+			//面试题中也要注意let和var区别
+			
+			
+		</script>
+	</body>
+</html>

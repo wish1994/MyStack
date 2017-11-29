@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var arr = [1,2,3,4];
+			
+//			arr.forEach(function(v){
+//				console.log(v);
+//			})
+			
+			//箭头函数的使用： 省掉了function 和小括号 大括号
+			
+//			arr.forEach( v => console.log(v) );
+			
+			//多个参数 要加小括号
+//			arr.forEach( (v,k) => console.log(v,k) );
+
+			//多个语句 要加大括号
+//			arr.forEach( (v,k) => {
+//				console.log(v);
+//				console.log(k);
+//			})
+			
+			//下面是一个函数 x是参数 得到返回值不用写return
+//			var fn = x => x * x;
+//			
+//			console.log( fn(3) );//9
+			
+			//不传递参数 返回值不用写return
+//			var fn1 = () => 5;
+//			
+//			console.log( fn1() ); //5
+			
+			var obj = {
+				birth : 1989,
+				getAgg: function(){
+//					console.log( this.birth );
+					
+//					var self = this;  //保存this指向
+//					
+//					var fn = function(){
+//						return new Date().getFullYear() - self.birth;
+//					}
+
+					//箭头函数
+					var fn = () => new Date().getFullYear() - this.birth;
+					
+					return fn();
+				}
+			}
+			
+//			obj.getAgg();
+			console.log(obj.getAgg());
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

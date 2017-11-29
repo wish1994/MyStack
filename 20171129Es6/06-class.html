@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+//			function Point(x,y){
+//				this.x = x;
+//				this.y = y;
+//				
+//			}
+//			Point.prototype.fun=function(){
+//				return "(" +this.x + "," + this.y+ ")";
+//			}
+//			var point = new Point(15,20);
+//			console.log(point.fun());
+			
+			
+			class DiyPoint{
+				//这里添加属性
+				//构造器：构造方法，不是自定义的 在new时候回自动调用次方法
+				//初始化，通常给赋值赋初值：准备工作
+				constructor(x,y){
+					//自己调用的，相当于之前构造函数初始化属性
+					//这里省略function
+					this.x = x;
+					this.y = y;
+				}
+				//自定义函数
+				fun(){
+					return "(" +this.x + "," + this.y+ ")";
+				}
+				
+			}
+			
+			var diypoint = new DiyPoint(30,40);
+			console.log( diypoint.fun() );
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

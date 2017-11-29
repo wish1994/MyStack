@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+            birth:1994,
+            name:"wish",
+            month:3,
+            day:7,
+            getDetail:function(){
+                var fn=()=>console.log(new Date().getFullYear()-this.birth+"岁，姓名："+this.name+",生日："+this.month+"月"+this.day+"日");
+                return fn();
+            }           
+        }
+        obj.getDetail();
+
+    </script>
+</body>
+</html>
