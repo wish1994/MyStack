@@ -15,9 +15,7 @@
 			$con=mysql_connect("localhost","root","root");
 
 			mysql_select_db("kaoladeshujuku",$con);				
-
-			mysql_query("SELECT * FROM xuesheng");
-			mysql_query("INSERT INTO xuesheng(xingming,nianling,qqhao) VALUES($name,$age,$qq)");
+			mysql_query("INSERT INTO xuesheng(xingming,nianling,qqhao) VALUES('$name','$age','$qq')");
 
 		?>
 		
