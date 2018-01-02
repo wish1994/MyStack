@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打气球</title>
+    <style>
+ 
+    .background{
+        position: absolute;
+        width: 100%;
+        height: 600px;
+        background-image: url(./images/bg.jpg);
+        background-size: cover;
+        background-position-y: center;  
+        overflow: hidden;
+    }
+    .background>div{
+        position: absolute;
+        width: 95px;
+        height: 122px;
+        background-image: url(./images/balloon.png);
+        background-position-x:-2px;
+        cursor:crosshair;
+        z-index:10;
+    }
+    audio{
+        visibility: hidden;
+    }
+    span{
+        font-size: 60px;
+        color:#fff;
+    }
+    p{
+        font-size: 60px;
+        color:lightcoral;
+    }
+    </style>
+</head>
+<body>
+    <div class="background">
+    <p>分数: <span>0</span> </p>
+    <p>倒计时: <span>100</span> </p>
+     <audio src="./images/bgm.mp3" autoplay = "autoplay" loop = "loop"></audio> 
+    <audio src="./images/c.wav" preload="preload">
+
+    </audio>
+
+    </div>
+
+
+
+
+    <script>
+        var score = document.getElementsByTagName("span")[0];
+        var time = document.getElementsByTagName("span")[1];
+        var background = document.getElementsByClassName("background")[0];
+        var boom = document.getElementsByTagName("audio")[1];
+
+        
+
+
+    function BitBalloon(){
+        this.left = Math.random()*1000;
+        this.speed =  0;
+        this.score = 0;
+        this.timer = null;
+        this.to = 510;
+        this.type = 0;
+        this.countDown = null;//倒计时
+        this.die = null;
+
+        // 创建与初始化
+        this.init = function (){
+            this.type = parseInt(Math.random()*11);
+
+            this.score =( this.type+1);
+
+            this.speed =  -this.score*1.7;
+  
+            this.balloon = document.createElement("div");
+            
+            background.appendChild(this.balloon);
+
+            // 初始属性设置
+            this.balloon.style.left = this.left+"px";
+            this.balloon.style.top = this.to+"px";
+            if(this.type <4){
+                this.balloon.style.backgroundPositionX = -this.type*95 +"px";
+            }else if(this.type<8){
+                this.balloon.style.backgroundPositionY = "-120px";
+                this.balloon.style.backgroundPositionX = -(this.type-4)*95 +"px";
+            }else if(this.type<11){
+                this.balloon.style.backgroundPositionY = "-240px";
+                this.balloon.style.backgroundPositionX = -(this.type-8)*95 +"px";
+            }
+        }
+
+            var self = this;
+
+
+                // 移动部分
+            this.move = function(){
+                var self = this;
+                this.timer = setInterval( function(){
+
+                    self.to += self.speed;
+      
+                    if(self.balloon.style.top<-100){
+                        self.die();
+                    }
+
+                    self.balloon.style.top = self.to+"px";
+                    
+                },30)
+            }
+
+
+         
+        
+        // 消失
+        this.die = function (){
+            clearInterval(this.timer);
+            background.removeChild(this.balloon);
+        }
+        this.init();
+        this.move();   
+        
+
+        // 点击得分消失
+        this.balloon.onclick = function(){  
+            if(self.score<9){
+                score.innerText = parseInt(score.innerText)+ parseInt(self.score);
+            }else if(self.score == 9){
+                score.innerText = parseInt(score.innerText)*2;
+            }else if(self.score == 10){
+                score.innerText = parseInt(score.innerText)/2;
+            }else if(self.score == 11){
+                score.innerText = 0;
+            }
+            boom.style.autoplay = "autoplay";
+            self.die();
+        }
+
+    }
+
+
+
+
+
+    var start = setInterval(function(){
+        new BitBalloon();
+    },500)
+
+
+
+            // 倒计时
+       var countDown = setInterval(function(){
+
+            time.innerText = parseInt(time.innerText)-1;
+
+                if(parseInt(time.innerText) == 0){
+                    alert("游戏结束，你的得分是"+score.innerText)
+                    score.innerText = 0;
+                    // background.removeChild(BitBalloon.balloon);
+                    time.innerText = 100;
+
+                    
+                    if(confirm("是否再次挑战")){
+
+                        clearInterval( BitBalloon.timer);       
+                        return start();
+
+                    }else{
+                        clearInterval(countDown);
+
+                    }
+                }
+        },1000)
+
+
+    </script>
+</body>
+</html>

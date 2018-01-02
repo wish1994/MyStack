@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>坦克大战</title>
+    <script src ="../JS框架/animate-2.0.2.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    #box{
+        width: 1000px;
+        height: 500px;
+        background-color: lightseagreen;
+        position: absolute;
+        left:50px;
+        top:50px;
+    }
+    #tank{
+        position: absolute;
+        left:20px;
+        top:20px;
+        width: 20px;
+        height: 20px;
+        background-color: burlywood;
+        border:1px solid #000;
+    }
+    .top{
+        position: absolute;
+        top:-10px;
+        left:8px;
+        height: 15px;
+        width: 2px;
+        background-color: orange;
+        border:1px solid #000;
+        display: none;
+    }
+    .right{
+        position: absolute;
+        top:8px;
+        left:15px;
+        height: 2px;
+        width: 15px;
+        background-color: orange;
+        border:1px solid #000;
+        display: none;
+    }
+    .bottom{
+        position: absolute;
+        top:15px;
+        left:8px;
+        height: 15px;
+        width: 2px;
+        background-color: orange;
+        border:1px solid #000;
+        display: block;
+    }
+    .left{
+        position: absolute;
+        top:8px;
+        left:-10px;
+        height: 2px;
+        width: 15px;
+        background-color: orange;
+        border:1px solid #000;
+        display: none;
+    }
+
+  .bullet{
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #000;
+      position: absolute;
+      display: none;  
+  }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+        <div class="bullet"></div>
+
+
+        <div id="tank">
+            <div class="left ">
+            </div>
+            <div class="top">             
+            </div>
+            <div class="right">               
+            </div>
+            <div class="bottom">      
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var box = document.getElementById("box");
+    var tank = document.getElementById("tank");
+    var head = tank.getElementsByTagName("div");
+    var bullet = document.getElementsByClassName("bullet");
+    var tankLeft = 0;
+    var tankTop = 0;
+    var keyCode;
+    var num = 140;
+    var flag;
+
+    document.onkeydown = function(event){
+        // head.display = "none";
+        for(var i= 0 ;i< 4 ;i++){
+            head[i].style.display = "none";
+        }
+        event = event || window.event;
+        keyCode = event.keyCode;
+
+
+
+        if(keyCode == 37){
+            tankLeft -=10;
+            head[0].style.display = "block";
+            flag = 37;
+            
+        }else if(keyCode ==38){
+            tankTop -=10;
+            head[1].style.display = "block";
+            flag = 38;
+            
+        }else if(keyCode ==39){
+            tankLeft +=10;
+            head[2].style.display = "block";
+            flag = 39;
+            
+        }else if(keyCode ==40){
+            tankTop +=10;
+            head[3].style.display = "block";
+            flag = 40 ;
+
+        }
+
+
+
+        if(tankLeft < 20)tankLeft = 20;
+        if(tankLeft > box.clientWidth-tank.offsetWidth){
+            tankLeft = box.clientWidth-tank.offsetWidth;}
+        if(tankTop < 20)tankTop = 20;
+        if(tankTop > box.clientHeight-tank.offsetHeight-20){
+            tankTop = box.clientHeight-tank.offsetHeight-20;}
+
+
+
+        tank.style.left = tankLeft+"px";
+        tank.style.top = tankTop+"px";
+
+        if(keyCode == 88){
+            bullet[0].style.left = 10+tankLeft+"px";
+            bullet[0].style.top = 10+tankTop+"px";
+
+
+            switch(flag){
+            case 37:
+                head[0].style.display = "block";
+                bullet[0].style.display = "block";
+                animate(bullet[0],{"left":tankLeft-790},2000,function(){
+                      bullet[0].style.display = "none";
+                });
+                break;
+            case 38:
+                head[1].style.display = "block";
+                bullet[0].style.display = "block";
+                animate(bullet[0],{"top":tankTop-790},2000,function(){
+                      bullet[0].style.display = "none";
+                });
+                break;
+            case 39:
+                 head[2].style.display = "block";
+                 bullet[0].style.display = "block";
+                 animate(bullet[0],{"left":tankLeft+800},2000,function(){
+                       bullet[0].style.display = "none";
+                 });
+                 break;
+            case 40:
+                head[3].style.display = "block";
+                bullet[0].style.display = "block";
+                animate(bullet[0],{"top":tankTop+810},2000,function(){
+                    bullet[0].style.display = "none";
+                });
+                break;
+            }
+        }
+
+        return false;
+    }
+
+
+</script>
+</html>
